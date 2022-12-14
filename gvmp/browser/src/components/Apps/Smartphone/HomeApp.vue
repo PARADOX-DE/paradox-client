@@ -76,7 +76,7 @@ export default {
             }
         },
         imagePathFinder (url) {
-            return 'img/' + url // 'img/' + url
+            return require('@/assets/smartphone/apps/' + url)
         },
         responseApps (appsList) {
             this.apps = JSON.parse(appsList)
