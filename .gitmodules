@@ -1,0 +1,6 @@
+[submodule "gvmp/item-assets"]
+	path = gvmp/item-assets
+	url = https://github.com/PARADOX-DE/paradox-item-assets.git
+[submodule "gvmp/game-resources"]
+	path = gvmp/game-resources
+	url = https://github.com/PARADOX-DE/paradox-game-resources.git
