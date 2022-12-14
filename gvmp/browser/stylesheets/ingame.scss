@@ -1,0 +1,37 @@
+﻿@charset "UTF-8";
+@import "game";
+
+@import "libs/leaflet";
+@import "libs/dragula";
+
+@import "components/ingame_container";
+@import "components/jumbotron";
+@import "components/hud";
+@import "components/devices/minimal-devices";
+@import "components/paper";
+@import "components/id_card";
+@import "components/interfaces/garage";
+@import "components/interfaces/inventory";
+@import "components/spacing";
+
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300');
+
+@import "gvmp_new/gvmp";
+
+::-webkit-scrollbar {
+    width: 0.4rem;
+    background-color: #5e5e5e;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #5e5e5e;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FF9800;
+    border: 2px solid #FF9800;
+}

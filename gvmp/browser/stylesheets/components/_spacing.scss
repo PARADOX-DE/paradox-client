@@ -1,0 +1,12 @@
+.spacing-left-right {
+    &.very-small {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+.spacing-bottom {
+    &.small {
+        margin-bottom: 1rem;
+    }
+}

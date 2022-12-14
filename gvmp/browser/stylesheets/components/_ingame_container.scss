@@ -1,0 +1,188 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Pricedown";
+    src: url("fonts/pricedown.ttf");
+}
+
+@font-face {
+    font-family: "CFHalloween-Regular";
+    src: url("fonts/CFHalloween-Regular.ttf");
+}
+
+body {
+    &:not(.no-animation) {
+        opacity: 0;
+        transition: opacity .7s;
+        will-change: opacity;
+        animation: BodyVisible 0.6s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    user-select: none;
+}
+
+img.logo {
+    width: 35vw;
+    display: block;
+    margin: 0 auto;
+    padding-top: 8vh;
+}
+
+@keyframes BodyVisible {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.branding {
+    position: absolute;
+    top: 3%;
+    width: 100%;
+    text-align: center;
+
+    img {
+        width: 220px;
+        opacity: 0.6;
+    }
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: scale(0);
+    transform-origin: center center;
+    animation: ContainerVisible 0.6s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transition-property: transform, width, height, font-size;
+    /*will-change: transform, width, height, font-size;*/
+    overflow-y: auto;
+
+    &.small {
+        animation: ContainerVisibleSmall 0.6s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    }
+
+    &.invisible {
+        animation: ContainerInvisible 0.6s;
+    }
+
+    &.shadow {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .header {
+        display: grid;
+        padding-left: 1vw;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        grid-template-areas: "title menu";
+        background-color: #fbfbfc;
+
+        h1 {
+            grid-area: title;
+            margin: 0;
+            font-size: 2.0vw;
+            font-weight: 500;
+            color: #616161;
+            line-height: 4vw;
+        }
+
+        menu {
+            display: grid;
+            grid-auto-flow: column dense;
+            grid-area: menu;
+            grid-template-columns: 1fr;
+            margin: 0;
+
+            item {
+                transition: background-color 0.4s linear;
+                line-height: 4vw;
+                justify-self: end;
+                padding: 0 1vw;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #BDBDBD;
+                }
+
+                &.active {
+                    background-color: #BDBDBD;
+                }
+            }
+        }
+    }
+
+    .inner {
+        padding: 2vw;
+    }
+}
+
+@keyframes ContainerVisible {
+    0% {
+        width: 0vw;
+        height: 0vh;
+        transform: scale(0);
+    }
+    0.00000000000001% {
+        width: 0.00000000000001vw;
+        height: 0.00000000000001vh;
+        transform: scale(0.00000000000001) translate(calc(-50% - 30vw), calc(-50% - 30vw));
+    }
+    100% {
+        width: 60vw;
+        height: 60vh;
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+@keyframes ContainerVisibleSmall {
+    0% {
+        width: 0vw;
+        height: 0vh;
+        transform: scale(0);
+    }
+    0.00000000000001% {
+        width: 0.00000000000001vw;
+        height: 0.00000000000001vh;
+        transform: scale(0.00000000000001) translate(calc(-50% - 30vw), calc(-50% - 30vw));
+    }
+    100% {
+        width: 30vw;
+        height: 30vh;
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+@keyframes ContainerInvisible {
+    0% {
+        width: 60vw;
+        height: 60vh;
+        transform: scale(1) translate(-50%, -50%);
+    }
+    99.99999999999999% {
+        width: 0.00000000000001vw;
+        height: 0.00000000000001vh;
+        transform: scale(0.00000000000001) translate(calc(-50% - 30vw), calc(-50% - 30vw));
+    }
+    100% {
+        width: 0;
+        height: 0;
+        transform: scale(0);
+    }
+}

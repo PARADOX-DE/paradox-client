@@ -1,0 +1,268 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+#meth-bg {
+    width: 70vw;
+    height: 66vh;
+    background: #E0E0E0;
+    border-radius: 0.5vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 0.2vh #C4C4C4 solid;
+}
+
+#status-lampe {
+    width: 2vh;
+    height: 2vh;
+    border-radius: 100%;
+    margin: 1.5vh 0 0 1vh;
+    display: block;
+}
+
+#status-lampe > p {
+    float: left;
+    letter-spacing: -0.2vh;
+}
+
+.led-box {
+    height: 3vh;
+    width: 25%;
+    float: left;
+    margin-left: 0.7vh;
+}
+
+.led-red {
+    margin: 0 auto;
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: #F00;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -0.1vh 1.5vh 0.2vh, inset #441313 0 -0.2vh 1.5vh, rgba(255, 0, 0, 0.5) 0 0.2vh 1.5vh;
+    -webkit-animation: blinkRed 0.5s infinite;
+    -moz-animation: blinkRed 0.5s infinite;
+    -ms-animation: blinkRed 0.5s infinite;
+    -o-animation: blinkRed 0.5s infinite;
+    animation: blinkRed 0.5s infinite;
+}
+
+.led-green {
+    margin: 0 auto;
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: #ABFF00;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -0.1vh 1.5vh 0.2vh, inset #304701 0 -0.2vh 1.5vh, #89FF00 0 0.2vh 1.5vh;
+}
+
+#terminate {
+    position:absolute;
+    right: 2vh;
+    top: 1vh;
+    font-size: 3vh;
+    cursor: pointer;
+}
+.middle {
+    margin-top: 8vh;
+    width: 100%;
+    clear:both;
+}
+.middle > #anzeigen {
+    width: 45%;
+    float: left;
+    padding: 2vh 1vh 0 0;
+    border-right: 0.2vh rgba(0,0,0,0.25) solid;
+    margin-left: 6vh;
+}
+.middle > #anzeigen > .anzeige {
+
+}
+.middle > #anzeigen > .anzeige > span {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.middle > #settings {
+    width: 45%;
+    float: left;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    padding: 0 1vh 0 2vh;
+}
+.middle > #settings > span {
+    font-size: 2vh;
+}
+.regeler {
+    width: 100%;
+}
+.progress-bar {
+    background-color: #E9E9E9;
+    height: 4vh;
+    padding: 0.2vh;
+    width: 100%;
+    margin: 1vh 0 3vh 0;
+    border-radius: 0.7vh;
+    box-shadow: 0 0.05vh 1.2vh rgba(0,0,0,0.5) inset, 0 0.05vh 0 rgba(0,0,0,0.5);
+}
+
+.progress-bar span {
+    display: inline-block;
+    height: 100%;
+    border-radius: 0.7vh;
+    box-shadow: 0 0.03vh 0 rgba(255, 255, 255, .5) inset;
+    transition: width .4s ease-in-out;
+}
+
+.blue span {
+    background-color: #34c2e3;
+}
+
+.orange span {
+    background-color: #fecf23;
+    background-image: linear-gradient(top, #fecf23, #fd9215);
+}
+
+.green span {
+    background-color: #a5df41;
+    background-image: linear-gradient(top, #a5df41, #4ca916);
+}
+
+.shine span {
+    position: relative;
+}
+
+.shine span::after {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 3px;
+    animation: animate-shine 2s ease-out infinite;
+}
+
+.glow span {
+    box-shadow: 0 5px 5px rgba(255, 255, 255, .3) inset, 0 -5px 5px rgba(255, 255, 255, .3) inset;
+}
+
+.bottom {
+    clear: both;
+    padding-top: 1.5vh;
+}
+
+@keyframes animate-glow {
+    0% {
+        box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+    }
+
+    50% {
+        box-shadow: 0 5px 5px rgba(255, 255, 255, .3) inset, 0 -5px 5px rgba(255, 255, 255, .3) inset;
+    }
+
+    100% {
+        box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+    }
+}
+@keyframes animate-shine {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 0;
+        width: 95%;
+    }
+}
+
+@-webkit-keyframes blinkRed {
+    from {
+        background-color: #F00;
+    }
+
+    50% {
+        background-color: #A00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+    }
+
+    to {
+        background-color: #F00;
+    }
+}
+
+@-moz-keyframes blinkRed {
+    from {
+        background-color: #F00;
+    }
+
+    50% {
+        background-color: #A00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+    }
+
+    to {
+        background-color: #F00;
+    }
+}
+
+@-ms-keyframes blinkRed {
+    from {
+        background-color: #F00;
+    }
+
+    50% {
+        background-color: #A00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+    }
+
+    to {
+        background-color: #F00;
+    }
+}
+
+@-o-keyframes blinkRed {
+    from {
+        background-color: #F00;
+    }
+
+    50% {
+        background-color: #A00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+    }
+
+    to {
+        background-color: #F00;
+    }
+}
+
+@keyframes blinkRed {
+    from {
+        background-color: #F00;
+    }
+
+    50% {
+        background-color: #A00;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+    }
+
+    to {
+        background-color: #F00;
+    }
+}

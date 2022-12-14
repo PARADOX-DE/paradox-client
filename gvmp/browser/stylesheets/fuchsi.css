@@ -1,0 +1,20 @@
+/**
+    Stylesheet für alle eigenen erstellten Styles um genau die selbe bei allen zukünftigen Apps zu verwenden
+    - fuchs
+*/
+
+
+/**
+    Pointer Klasse um alle Links mit einem Pointer als Cursor auszustatten.
+*/
+.pointerClass {
+    cursor: pointer;
+}
+
+.mittig {
+    text-align: center;
+}
+
+.appBox {
+    padding: 1.2rem 0;
+}

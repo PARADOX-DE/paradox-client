@@ -1,0 +1,34 @@
+.serve
+.DS_Store
+gvmp/browser/node_modules
+gvmp/client/node_modules
+gvmp/browser/dist
+gvmp/client/dist
+gvmp/client/dist/client.js
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+gvmp/\.vs/
+gvmp/update91218\.rar
+/.vs
+gvmp/browser/package.json
+gvmp/browser/package-lock.json
+gvmp/client/package.json
+gvmp/client/package-lock.json
+gvmp/browser/package-lock.json
+gvmp/browser/package.json

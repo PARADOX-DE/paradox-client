@@ -1,0 +1,33 @@
+// shared colors
+$grey-500: #9E9E9E;
+$grey-300: #E0E0E0;
+
+$red-500: #F44336;
+$green-500: #4CAF50;
+$orange-500: #FF9800;
+$white-1000: #FFF;
+$black-1000: #000;
+$blue-500:#2196F3;
+$light-blue-500: #03A9F4;
+$blue-700:#2196F3;
+$light-blue-600:#039BE5;
+// text styles
+$text-color-primary-dark: rgba(0, 0, 0, 0.87);
+$text-color-primary-light: $white-1000;
+// theme colors
+$primary-color: $orange-500 !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+$secondary-color: $blue-500 !default;
+$success-color: $green-500 !default;
+$error-color: $red-500 !default;
+$link-color: $light-blue-600 !default;
+
+.color {
+    &.blue {
+        background-color: $blue-500;
+    }
+    &.white {
+        background-color: $white-1000;
+    }
+}

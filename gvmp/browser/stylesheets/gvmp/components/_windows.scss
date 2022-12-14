@@ -1,0 +1,25 @@
+#window-frame {
+  &.lightmode {
+    background: linear-gradient($white, $window-light-outside);
+    .window-card {
+      .window-card-title {
+
+      }
+      .window-card-body {
+        background: linear-gradient($custom-grey-1, $window-light-inner);
+      }
+    }
+  }
+
+  &.darkmode {
+    background: linear-gradient($gvmp-dark, $window-dark-outside);
+    .window-card {
+      .window-card-title {
+
+      }
+      .window-card-body {
+        background: linear-gradient($window-dark-inside, $window-dark-outside);
+      }
+    }
+  }
+}

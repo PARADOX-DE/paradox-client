@@ -1,0 +1,247 @@
+//........................................................
+//.....GGGGGGG..GGVVV....VVVVVMMMMM...MMMMMM.PPPPPPPPP....
+//...GGGGGGGGGG..GVVV....VVVVVMMMMM...MMMMMM.PPPPPPPPPP...
+//..GGGGGGGGGGGG.GVVV....VVVVVMMMMM...MMMMMM.PPPPPPPPPPP..
+//..GGGGG..GGGGG.GVVVV..VVVV.VMMMMMM.MMMMMMM.PPPP...PPPP..
+//.GGGGG....GGG...VVVV..VVVV.VMMMMMM.MMMMMMM.PPPP...PPPP..
+//.GGGG...........VVVV..VVVV.VMMMMMM.MMMMMMM.PPPPPPPPPPP..
+//.GGGG..GGGGGGGG.VVVVVVVVV..VMMMMMMMMMMMMMM.PPPPPPPPPP...
+//.GGGG..GGGGGGGG..VVVVVVVV..VMMMMMMMMMMMMMM.PPPPPPPPP....
+//.GGGGG.GGGGGGGG..VVVVVVVV..VMMMMMMMMMMMMMM.PPPP.........
+//..GGGGG....GGGG..VVVVVVV...VMMM.MMMMM.MMMM.PPPP.........
+//..GGGGGGGGGGGG....VVVVVV...VMMM.MMMMM.MMMM.PPPP.........
+//...GGGGGGGGGG.....VVVVVV...VMMM.MMMMM.MMMM.PPPP.........
+//.....GGGGGGG......VVVVV....VMMM.MMMMM.MMMM.PPPP.........
+//........................................................
+//========================================================
+//........................................................
+//......GVMP Stylesheet v2................................
+//........................................................
+//......Created By:.......................................
+//......bitbucket.org/codingfoxDE.........................
+//........................................................
+//........................................................
+
+
+//=========== 0.0 ========================================
+//============ Imports
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+//=========== 1.0 ========================================
+//============ Inputs
+input[type=range] {
+    height: 32px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+    border-bottom: none;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 16px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #B6B6B6;
+    border-radius: 25px;
+    border: 1px solid #8A8A8A;
+}
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #828282;
+    border: 1px solid #8A8A8A;
+    height: 24px;
+    width: 35px;
+    border-radius: 6px;
+    background: #DADADA;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #B6B6B6;
+}
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 16px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #B6B6B6;
+    border-radius: 25px;
+    border: 1px solid #8A8A8A;
+}
+input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #828282;
+    border: 1px solid #8A8A8A;
+    height: 24px;
+    width: 35px;
+    border-radius: 6px;
+    background: #DADADA;
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 16px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #B6B6B6;
+    border: 1px solid #8A8A8A;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+    background: #B6B6B6;
+    border: 1px solid #8A8A8A;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 1px 1px 1px #828282;
+    border: 1px solid #8A8A8A;
+    height: 24px;
+    width: 35px;
+    border-radius: 6px;
+    background: #DADADA;
+    cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #B6B6B6;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #B6B6B6;
+}
+//=========== 2.0 ========================================
+//============ Fonts
+.roboto-font {
+    font-family: 'Roboto', sans-serif;
+}
+.share-tech-font {
+    font-family: 'Share Tech Mono', monospace;
+}
+//=========== 3.0 ========================================
+//============ Aligns
+.text-center {
+    text-align: center;
+}
+.float-right {
+    float:right;
+}
+.float-left {
+    float: left;
+}
+//============ Spacing
+.mb-0-5 {
+    margin-bottom: 0.5vh;
+}
+.mb-1 {
+    margin-bottom: 1vh;
+}
+.mb-2 {
+    margin-bottom: 2vh;
+}
+.ml-3 {
+    margin-left: 3vh;
+}
+.ml-4 {
+    margin-left: 4vh;
+}
+.ml-5 {
+    margin-left: 5vh;
+}
+.ml-6 {
+    margin-left: 6vh;
+}
+//=========== 4.0 ========================================
+//============ Button
+.gvmputton {
+    padding: 2vh 3vh;
+    margin: 2vh;
+    font-size: 1.3vh;
+    border-radius: 0.3vh;
+    display:inline-block;
+    cursor:pointer;
+    text-decoration:none;
+}
+//============ Button Sizes
+.gvmputton-sm {
+    font-size: 1vh;
+    padding: 0.75vh 1.5vh;
+}
+.gvmputton-md {
+    font-size: 1.5vh;
+    padding: 1.25vh 2.25vh;
+}
+.gvmputton-lg {
+    font-size: 2.5vh;
+    padding: 1.75vh 3.25vh;
+}
+.gvmputton-block {
+    width: 20vh;
+}
+//============ Button Colors
+.gvmputton-green {
+    box-shadow:inset 0 0.1vh 0 0 #9acc85;
+    background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+    background-color:#74ad5a;
+    border:0.1vh solid #3b6e22;
+    color:#ffffff;
+    text-shadow:0 0.2vh 0 #92b879;
+}
+.gvmputton-green:hover {
+    background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+    background-color:#68a54b;
+}
+.gvmputton-red {
+    box-shadow:inset 0 0.1vh 0 0 #cf866c;
+    background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color: #d0451b;
+    border: 0.1vh solid #942911;
+    color:#ffffff;
+    text-shadow:0 0.2vh 0 #854629;
+}
+.gvmputton-red:hover {
+    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color:#bc3315;
+}
+.gvmputton-black {
+    box-shadow:inset 0 0.1vh 0 0 #cccccc;
+    background:linear-gradient(to bottom, #404040 5%, #333333 100%);
+    background-color: #333333;
+    border: 0.1vh solid #333333;
+    color:#ffffff;
+    text-shadow:0 0.2vh 0 #333333;
+}
+.gvmputton-black:hover {
+    background: linear-gradient(to bottom, #333333 5%, #404040 100%);
+    background-color:#333333;
+}
+
+//=========== 5.0 ========================================
+//============ Border
+.border-bottom-1 {
+    border-bottom: 0.1vh rgba(0,0,0,0.35) solid;
+}
+//=========== 6.0 ========================================
+//=========== 7.0 ========================================
+//=========== 8.0 ========================================
+//=========== 9.0 ========================================
+//=========== 10.0 =======================================
+//=========== 11.0 =======================================
+//=========== 12.0 =======================================
+//=========== 13.0 =======================================
+//=========== 14.0 =======================================
+//=========== 15.0 =======================================
+//=========== 16.0 =======================================
+//=========== 17.0 =======================================
+//=========== 18.0 =======================================
+//=========== 19.0 =======================================
+//=========== 20.0 =======================================

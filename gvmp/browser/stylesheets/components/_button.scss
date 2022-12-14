@@ -1,0 +1,180 @@
+.btns {
+  display: box;
+  box-pack: center;
+  box-align: center;
+  .btn {
+    margin: 10px;
+  }
+}
+
+.btn {
+  font-size: 1rem;
+  outline: 0;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: $button-letter-spacing;
+  border: $button-border;
+  border-radius: $button-radius;
+  display: inline-block;
+  height: $button-height;
+  line-height: $button-height;
+  padding: $button-padding;
+  text-transform: uppercase;
+  vertical-align: middle;
+  &.circle {
+    width: $button-circle-size;
+    height: $button-circle-size;
+    border-radius: 100%;
+    text-align: center;
+    line-height: $button-circle-line-height;
+    padding: inherit;
+    &.small {
+        width: $button-circle-small-size;
+        height: $button-circle-small-size;
+        line-height: $button-circle-small-line-height;
+        padding: 0;
+    }
+  }
+  &.flat {
+    color: $link-color;
+    background-color: transparent;
+    &:hover {
+      color: lighten($link-color, 5%);
+    }
+    &:active {
+      color: darken($link-color, 5%);
+    }
+    &.primary {
+      color: $primary-color;
+      &:hover {
+        color: lighten($primary-color, 5%);
+      }
+      &:active {
+        color: darken($primary-color, 5%);
+      }
+    }
+    &.positive {
+      color: $green-500;
+      &:hover {
+        color: lighten($green-500, 5%);
+      }
+      &:active {
+        color: darken($green-500, 5%);
+      }
+    }
+    &.negative {
+      color: $red-500;
+      &:hover {
+        color: lighten($red-500, 5%);
+      }
+      &:active {
+        color: darken($red-500, 5%);
+      }
+    }
+    &.neutral {
+      color: $grey-500;
+      &:hover {
+        color: lighten($grey-500, 5%);
+      }
+      &:active {
+        color: darken($grey-500, 5%);
+      }
+    }
+    &.secondary {
+      color: $secondary-color;
+      &:hover {
+        color: lighten($secondary-color, 5%);
+      }
+      &:active {
+        color: darken($secondary-color, 5%);
+      }
+    }
+  }
+  &:not(.flat) {
+    color: $text-color-primary-light;
+    transition: all 0.15s ease;
+    @include box_shadow(1);
+    &:hover {
+      transform: translateY(-1px);
+      @include box_shadow(2);
+    }
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    &:not(.primary):not(.positive):not(.negative):not(.neutral):not(.negative):not(.secondary) {
+      color: $link-color;
+      &:active {
+        color: darken($link-color, 15%);
+      }
+    }
+    &.primary {
+      background-color: $primary-color;
+      &:hover {
+        background-color: lighten($primary-color, 5%);
+      }
+      &:active {
+        background-color: darken($primary-color, 5%);
+      }
+    }
+    &.positive {
+      background-color: $green-500;
+      &:hover {
+        background-color: lighten($green-500, 5%);
+      }
+      &:active {
+        background-color: darken($green-500, 5%);
+      }
+    }
+    &.negative {
+      background-color: $red-500;
+      &:hover {
+        background-color: lighten($red-500, 5%);
+      }
+      &:active {
+        background-color: darken($red-500, 5%);
+      }
+    }
+    &.neutral {
+      background-color: $grey-500;
+      &:hover {
+        background-color: lighten($grey-500, 5%);
+      }
+      &:active {
+        background-color: darken($grey-500, 5%);
+      }
+    }
+    &.secondary {
+      background-color: $secondary-color;
+      &:hover {
+        background-color: lighten($secondary-color, 5%);
+      }
+      &:active {
+        background-color: darken($secondary-color, 5%);
+      }
+    }
+  }
+  &:disabled,
+  &[disabled] {
+    pointer-events: none;
+    &.flat {
+      color: $grey-300;
+      &:hover {
+        color: lighten($grey-300, 5%);
+      }
+      &:active {
+        color: darken($grey-300, 5%);
+      }
+    }
+    &:not(.flat) {
+      background-color: $grey-300;
+      &:hover {
+        background-color: lighten($grey-300, 5%);
+      }
+      &:active {
+        background-color: darken($grey-300, 5%);
+      }
+    }
+  }
+}

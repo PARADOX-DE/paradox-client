@@ -1,0 +1,205 @@
+$prefix: gvmp;
+
+@import "spacing";
+@import "buttons";
+@import "typography";
+
+:root {
+    --white: #afafaf;
+    --red: #e31b23;
+    --bodyColor: #292a2b;
+    --borderFormEls: hsl(0, 0%, 32%);
+    --bgFormEls: hsl(0, 0%, 14%);
+    --bgFormElsFocus: hsl(0, 7%, 20%);
+}
+
+.#{$prefix} {
+    &-wrapper {
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-size: cover;
+        font-size: 1rem;
+        animation: fade-in 0.5s;
+        z-index: 99999;
+
+        ::-webkit-scrollbar {
+            width: 2px;
+            height: 2px;
+        }
+
+        ::-webkit-scrollbar-button {
+            width: 0;
+            height: 0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e1e1e1;
+            border: 0 none #fff;
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fff;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #666;
+            border: 0 none #fff;
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-track:hover {
+            background: #666;
+        }
+
+        ::-webkit-scrollbar-track:active {
+            background: #333;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+    }
+
+    &-hr {
+        opacity: 0.3;
+    }
+
+    &-price {
+        color: #1dff1d;
+        font-weight: 700;
+    }
+
+    &-left,
+    &-right {
+        position: absolute;
+        width: 35rem;
+        height: 100%;
+        padding: 5rem;
+    }
+
+    &-right {
+        right: 0;
+        animation: slide-in-right 0.5s;
+        background: linear-gradient(-90deg, rgba(0, 0, 0, 0.900717787114846) 10%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    &-left {
+        left: 0;
+        animation: slide-in-left 0.5s;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.900717787114846) 10%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    &-rounded {
+        border-radius: .25rem;
+    }
+
+    &-text-left {
+        text-align: left !important;
+    }
+
+    &-float-left {
+        float: left;
+    }
+
+    &-float-right {
+        float: right;
+    }
+
+    &-d-flex {
+        display: -ms-flexbox !important;
+        -js-display: flex;
+        display: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-justify-between {
+        justify-content: space-between;
+    }
+
+    &-align-items-center {
+        align-items: center;
+    }
+
+    &-justify-end {
+        justify-content: flex-end;
+    }
+
+    &-justify-center {
+        justify-content: center;
+    }
+
+    &-align-items-end {
+        align-items: flex-end;
+    }
+
+    &-input {
+        width: 100%;
+        line-height: 1.5;
+        padding: 15px 10px;
+        border: 1px solid var(--borderFormEls);
+        color: var(--white);
+        background: var(--bgFormEls);
+        transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+        transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+        font-size: 1rem !important;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #ccc;
+        }
+    }
+
+    &-bg-black {
+        color:      white;
+        box-shadow: inset 0 0 0 0.02rem rgba(112, 112, 112, 0.8);
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    &-bg-black.active,
+    &-bg-black.hoverable:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+        cursor: pointer;
+    }
+
+    &-bg-red {
+        color: #f00;
+        box-shadow: inset 0 0 0 0.02rem rgba(112, 112, 112, 0.8);
+        background: rgba(100, 2, 2, 0.5);
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        right: -250vh;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes slide-in-left {
+    0% {
+        left: -250vh;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

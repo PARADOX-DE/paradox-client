@@ -1,0 +1,51 @@
+#flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #flyer {
+    background: $grey-400;
+    margin-top: 10vh;
+    width: 50vw;
+    height: auto;
+    max-height: 80vh;
+    overflow: hidden;
+
+    .flyer-card {
+      border: 0.2vh solid $black;
+
+      .flyer-header {
+        padding: 1vh;
+        background: $black-100;
+        color: $white;
+
+        .flyer-title {
+          float: left;
+        }
+
+        .clearfix {
+          clear: both;
+        }
+
+        .flyer-action {
+          float: right;
+          cursor: pointer;
+        }
+
+      }
+
+      .flyer-body {
+        text-align: center;
+
+        .flyer-image {
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+    }
+
+  }
+
+}

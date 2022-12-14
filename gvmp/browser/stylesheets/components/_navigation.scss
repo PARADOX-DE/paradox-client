@@ -1,0 +1,33 @@
+nav {
+    position: relative;
+    * {
+        display: block;
+        line-height: 40px;
+        height: 40px;
+    }
+    .selection {
+        position: absolute;
+        width: 100%;
+        border-radius: 4px;
+        background: #68d4f8;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+        will-change: transform;
+        transform-origin: 50% 0;
+        transition: transform .3s cubic-bezier(.165, .84, .44, 1);
+        &.transform-y {
+            transform: translateY(100%);
+        }
+    }
+    button {
+        position: relative;
+        text-align: left;
+        cursor: pointer;
+        padding: 0 10px;
+
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        width: 100%;
+    }
+}

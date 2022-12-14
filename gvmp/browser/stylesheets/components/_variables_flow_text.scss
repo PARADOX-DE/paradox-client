@@ -1,0 +1,3 @@
+$range: $large-screen - $small-screen !default;
+$intervals: 20 !default;
+$interval-size: $range / $intervals !default;

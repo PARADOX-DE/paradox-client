@@ -1,0 +1,29 @@
+.color-background {
+    &.green {
+        background-color: $green-500;
+    }
+    &.blue {
+        background-color: $blue-500;
+    }
+    &.red {
+        background-color: $red-500;
+    }
+    &.white {
+        background-color: white;
+    }
+    &.black {
+        background-color: $black-1000;
+    }
+    &.orange {
+        background-color: $orange-500;
+    }
+    &.dark-top {
+        background-color: #313131 !important;
+    }
+    &.dark-secondary {
+        background-color: #525252 !important;
+    }
+    &.heading {
+        background-color: #414141;
+    }
+}

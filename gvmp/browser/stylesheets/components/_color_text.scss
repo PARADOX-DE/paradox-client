@@ -1,0 +1,17 @@
+.color-text {
+    &.green {
+        color: $green-500 !important;
+    }
+    &.blue {
+        color: $blue-500 !important;
+    }
+    &.red {
+        color: $red-500 !important;
+    }
+    &.white {
+        color: white !important;
+    }
+    &.black {
+        color: $black-1000 !important;
+    }
+}

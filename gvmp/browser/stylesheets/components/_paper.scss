@@ -1,0 +1,44 @@
+.paper:before,
+.paper:after {
+    position: absolute;
+    width: 40%;
+    height: 10px;
+    content: ' ';
+    left: 12px;
+    bottom: 12px;
+    background: transparent;
+    -webkit-transform: skew(-5deg) rotate(-5deg);
+    -moz-transform: skew(-5deg) rotate(-5deg);
+    -ms-transform: skew(-5deg) rotate(-5deg);
+    -o-transform: skew(-5deg) rotate(-5deg);
+    transform: skew(-5deg) rotate(-5deg);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.paper:after {
+    left: auto;
+    right: 12px;
+    -webkit-transform: skew(5deg) rotate(5deg);
+    -moz-transform: skew(5deg) rotate(5deg);
+    -ms-transform: skew(5deg) rotate(5deg);
+    -o-transform: skew(5deg) rotate(5deg);
+    transform: skew(5deg) rotate(5deg);
+}
+
+.paper {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.paper2 {
+    background: #fff;
+    box-shadow: /* The top layer shadow */
+            0 1px 1px rgba(0, 0, 0, 0.15), /* The second layer */
+            0 10px 0 -5px #eee, /* The second layer shadow */
+            0 10px 1px -4px rgba(0, 0, 0, 0.15), /* The third layer */
+            0 20px 0 -10px #eee, /* The third layer shadow */
+            0 20px 1px -9px rgba(0, 0, 0, 0.15);
+}

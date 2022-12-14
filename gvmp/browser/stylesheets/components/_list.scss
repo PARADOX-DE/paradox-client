@@ -1,0 +1,101 @@
+.list-group {
+    padding: 20px 35px;
+    ul {
+        margin: -5px -10px;
+        display: flex;
+        flex-direction: column;
+        li {
+            flex: 1 0 auto;
+            display: flex;
+            a {
+                padding: 16px 8px;
+                flex: 1;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.list-flex {
+    &.center {
+        ul li {
+            align-items: center;
+        }
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        li {
+            text-align: center;
+            padding-bottom: 10px;
+            display: flex;
+            span {
+                padding: 0 10px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            a {
+                flex-shrink: 1;
+            }
+        }
+    }
+}
+
+.option-list {
+    white-space: nowrap;
+    a {
+        cursor: pointer;
+        color: $primary-color; //#525f7f;
+        &:hover {
+            background-color: #f6f9fc;
+            color: darken($primary-color, 15%); //color: #32325d;
+        }
+        &:active {
+            background-color: #e6ebf1;
+        }
+        border-radius: 4px;
+        display: block;
+        line-height: 36px;
+        padding: 0 15px;
+        transition: color 0.1s, background-color 0.1s;
+        &.selected {
+            font-weight: 600;
+            color: #32325d;
+            span:before {
+                content: "";
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                vertical-align: -2px;
+                margin: 0 6px 0 -2px;
+                background: url(assets/list/checkmark.svg);
+            }
+        }
+        &.secondary {
+            color: $secondary-color;
+            &:hover {
+                color: darken($secondary-color, 15%);
+            }
+        }
+        &.negative {
+            color: $red-500;
+            &:hover {
+                color: darken($red-500, 15%);
+            }
+        }
+        &.positive {
+            color: $green-500;
+            &:hover {
+                color: darken($green-500, 15%);
+            }
+        }
+        &.neutral {
+            color: $grey-500;
+            &:hover {
+                color: darken($grey-500, 15%);
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.text-rotation {
+    color: #333;
+    &.deg-90 {
+        writing-mode: tb-rl;
+        white-space: nowrap;
+        display: inline-block;
+        overflow: visible;
+    }
+}
