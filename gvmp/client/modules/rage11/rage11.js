@@ -25,13 +25,9 @@ mp.events.add("playerSpawn", (client) => {
 });
 
 
-mp.players.local.setSuffersCriticalHits(true);
+mp.players.local.setSuffersCriticalHits(false);
 //Disable sneaking
 mp.players.local.setStealthMovement(false, '0');
-
-mp.events.add('toggleHeadshot', state => {
-    mp.players.local.setSuffersCriticalHits(state);
-});
 
 mp.events.add('triggerRagdoll', () => {
     mp.players.local.setToRagdoll(100, 100, 2, false, false, false);
@@ -58,11 +54,9 @@ mp.events.add('render', () => {
     //mp.game.controls.disableControlAction(0, 44, true); // Cover
 
     // Combat running
-    /*
     if (mp.players.local.isUsingActionMode()) {
         mp.players.local.setUsingActionMode(false, -1, "DEFAULT_ACTION");
     }
-    */
 
     // Hide Ammo
     mp.game.ui.displayAmmoThisFrame(false);
