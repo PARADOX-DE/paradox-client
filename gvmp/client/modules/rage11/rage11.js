@@ -124,6 +124,8 @@ mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapo
 
 mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
     if (!targetEntity) return true;
+    if (!sourcePlayer) return true;
+    if (sourcePlayer.isInMeleeCombat()) return false;
     if (!shotPlayer || shotPlayer === undefined) return true;
     if (targetEntity.id != shotPlayer.id) return true;
 
@@ -135,6 +137,7 @@ mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapo
             boneIndex,
             weapon.toString())
     }
+
 });
 
 
