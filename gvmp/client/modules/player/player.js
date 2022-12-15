@@ -103,16 +103,6 @@ class Player {
             mp.game.invoke('0xF4F2C0D4EE209E20');
         }, 25000);
 
-        setInterval(() => {
-            if(this.remoteHashKey == "") return;
-            let res = mp.game.graphics.getScreenAspectRatio(true);
-
-            if(res < 1.5) {
-                mp.events.callRemote('wrongScreenScale', res, this.remoteHashKey)
-            }
-
-        }, 20000);
-
         const methlaboratory = {
             interiorName: 'bkr_biker_interior_placement_interior_2_biker_dlc_int_ware01_milo',
             interiorID  : 247041,

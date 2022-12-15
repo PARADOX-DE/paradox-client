@@ -3,6 +3,8 @@ mkdir build
 cd build
 mkdir game_resources
 
+mkdir img 
+
 cd img
 mkdir itemImages
 
@@ -12,11 +14,12 @@ cd ..
 cd gvmp 
 
 cd client
-gulp build
+call gulp build
 xcopy "dist" "../../build" /h /i /c /k /e /r /y
 
+cd ..
 cd browser
-npm run build 
+call npm run build
 xcopy "dist" "../../build" /h /i /c /k /e /r /y
 
 cd ..

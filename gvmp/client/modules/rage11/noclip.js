@@ -40,7 +40,7 @@ mp.events.add('toggleNoClip', state => {
     }
 });
 
-mp.events.add('gotocam',pos => {
+mp.events.add('gotocam', pos => {
     if (noClipCamera) {
         pos = JSON.parse(pos);
         noClipCamera.setCoord(pos.x, pos.y, pos.z);

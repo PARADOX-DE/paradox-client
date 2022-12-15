@@ -26,9 +26,3 @@ yarn-error.log*
 gvmp/\.vs/
 gvmp/update91218\.rar
 /.vs
-gvmp/browser/package.json
-gvmp/browser/package-lock.json
-gvmp/client/package.json
-gvmp/client/package-lock.json
-gvmp/browser/package-lock.json
-gvmp/browser/package.json
