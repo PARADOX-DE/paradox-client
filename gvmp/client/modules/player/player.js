@@ -1069,37 +1069,6 @@ class Player {
             }
         })
 
-        mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
-
-            if (targetEntity.id != this.shotPlayer.id) return true;
-
-            if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
-                mp.events.callRemoteUnreliable("aads",
-                    targetEntity,
-                    Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
-                    (boneIndex === 20) ? Math.floor(damage / 18) : damage,
-                    boneIndex,
-                    weapon.toString())
-            }
-        });
-
-
-        mp.events.add('playerWeaponShot', (targetPosition, targetEntity) => {
-
-            this.shotPlayer = undefined;
-            for (var x in this.weaponAmmo) {
-                if (this.weaponAmmo[x].id != this.currentWeapon) {
-                    continue
-                }
-                this.weaponAmmo[x].ammo = this.weaponAmmo[x].ammo - 1
-            }
-
-            if (targetEntity) {
-                this.shotPlayer = targetEntity;
-                if (!targetEntity.vehicle && targetEntity.getHealth() > 0)
-                    targetEntity.setCanRagdoll(false);
-            }
-        });
 
         mp.events.add('onPlayerLoaded', (firstName, lastName, playerId, academicPoints, business, gwdNote, money, wanteds, house, team, teamRank, level, injured, duty, tied, cuffed, voiceHash, state, phone, job, jobsSkill, animations, gvmpTeamRank, weaponDmg, playerSync, vehicleSync, blackmoney, ringtone, insurance1, zwdNote, meleeDmg, dmglg) => {
             this.firstName = firstName
@@ -1537,6 +1506,15 @@ class Player {
         mp.events.add('destroyPlayerMarker', () => {
             this.marker.destroy()
             this.marker = null
+        })
+
+        mp.events.add('playerWeaponShot', (targetPosition, targetEntity) => {
+            for (var x in this.weaponAmmo) {
+                if (this.weaponAmmo[x].id != this.currentWeapon) {
+                    continue
+                }
+                this.weaponAmmo[x].ammo = this.weaponAmmo[x].ammo - 1
+            }
         })
 
         mp.events.add('setSpawnProtection', state => {

@@ -4,6 +4,8 @@ import player from "../player/player"
 //FadeOutDeath cuz of new Handling
 mp.game.gameplay.setFadeOutAfterDeath(false);
 
+let shotPlayer = undefined;
+
 function makeid(length) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -117,4 +119,29 @@ mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapo
         mp.players.local.applyDamageTo(Math.floor(damage / 18), true);
         return true;
     }
+});
+
+
+mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
+    if (!targetEntity) return true;
+    if (!shotPlayer || shotPlayer === undefined) return true;
+    if (targetEntity.id != shotPlayer.id) return true;
+
+    if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
+        mp.events.callRemoteUnreliable("aads",
+            targetEntity,
+            Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
+            (boneIndex === 20) ? Math.floor(damage / 18) : damage,
+            boneIndex,
+            weapon.toString())
+    }
+});
+
+
+mp.events.add('playerWeaponShot', (targetPosition, targetEntity) => {
+    shotPlayer = undefined;
+    if (targetEntity === undefined || !targetEntity) return;
+    shotPlayer = targetEntity;
+    if (!targetEntity.vehicle && targetEntity.getHealth() > 0)
+        targetEntity.setCanRagdoll(false);
 });
