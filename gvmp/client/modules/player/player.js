@@ -9,95 +9,96 @@ import attachments from '../attachments/attachments'
 import playerinfo from '../interfaces/hud/playerinfo'
 
 class Player {
-    constructor () {
-        this.firstName      = undefined
-        this.lastName       = undefined
-        this.superjump      = undefined
-        this.playerId       = undefined
+    constructor() {
+        this.firstName = undefined
+        this.lastName = undefined
+        this.superjump = undefined
+        this.playerId = undefined
         this.academicPoints = undefined
-        this.business       = undefined
-        this.gwdNote        = undefined
-        this.zwdNote        = undefined
-        this.money          = undefined
-        this.blackmoney     = undefined
-        this.wanteds        = undefined
-        this.house          = undefined
-        this.team           = undefined
-        this.teamRank       = undefined
-        this.gvmpTeamRank   = undefined
-        this.level          = undefined
-        this.injured        = undefined
-        this.duty           = undefined
-        this.cuffed         = undefined
-        this.tied           = undefined
-        this.aduty          = undefined
-        this.inventory      = undefined
+        this.business = undefined
+        this.gwdNote = undefined
+        this.zwdNote = undefined
+        this.money = undefined
+        this.blackmoney = undefined
+        this.wanteds = undefined
+        this.house = undefined
+        this.team = undefined
+        this.teamRank = undefined
+        this.gvmpTeamRank = undefined
+        this.level = undefined
+        this.injured = undefined
+        this.duty = undefined
+        this.cuffed = undefined
+        this.tied = undefined
+        this.aduty = undefined
+        this.inventory = undefined
         this.lastMusicEvent = undefined
-        this.weaponDmg      = 0;
-        this.meleeDmg       = 0;
-        this.dmglg          = 0;
-        this.invincible     = false
-        this.chatFlag       = false
-        this.voiceHash      = ''
-        this.state          = 0
-        this.rank           = 0
-        this.phone          = undefined
-        this.phonelautlos   = false
-        this.contacts       = new Contacts()
-        this.historys       = new Historys()
-        this.weaponAmmo     = []
-        this.cduty          = false
-        this.currentWeapon  = undefined
-        this.job            = undefined
-        this.jobsSkill      = undefined
+        this.weaponDmg = 0;
+        this.meleeDmg = 0;
+        this.dmglg = 0;
+        this.invincible = false
+        this.chatFlag = false
+        this.voiceHash = ''
+        this.state = 0
+        this.rank = 0
+        this.phone = undefined
+        this.phonelautlos = false
+        this.contacts = new Contacts()
+        this.historys = new Historys()
+        this.weaponAmmo = []
+        this.cduty = false
+        this.currentWeapon = undefined
+        this.job = undefined
+        this.jobsSkill = undefined
         this.isPetFollowing = undefined
         this.Krankenversicherung = undefined
         this.activeRingtone = 0
         this.gui
-        this.natives           = {
-            SWITCH_OUT_PLAYER           : '0xAAB3200ED59016BC',
-            SWITCH_IN_PLAYER            : '0xD8295AF639FD9CB8',
+        this.natives = {
+            SWITCH_OUT_PLAYER: '0xAAB3200ED59016BC',
+            SWITCH_IN_PLAYER: '0xD8295AF639FD9CB8',
             IS_PLAYER_SWITCH_IN_PROGRESS: '0xD9D2CFFF49FAB35F',
         }
-        this.animations        = []
-        this.marker            = null
-        //this.lastInteractE = new Date()
-        this.playerSync        = true
-        this.vehicleSync       = true
+        this.animations = []
+        this.marker = null
+            //this.lastInteractE = new Date()
+        this.playerSync = true
+        this.vehicleSync = true
         this.shortCutBeingUsed = false
-        this.isCarrying        = false
-        this.allowHandy        = true
-        this.spawnedDrugPed    = null
-        this.progressbar       = false
-        this.health            = 100
-        this.ready             = false
-        this.wasRagdoll        = {}
-        this.collided          = {}
-        this.HasCollided       = false
-        this.HasRagdall        = false
-        this.isOpeningDoor     = false
-        this.isInWater         = false
-        this.acMark1           = undefined
-        this.acMark2           = undefined
-        this.custommarkers     = []
-        this.customObjects     = []
-        this.weaponSwitchAmmo  = []
+        this.isCarrying = false
+        this.allowHandy = true
+        this.spawnedDrugPed = null
+        this.progressbar = false
+        this.health = 100
+        this.ready = false
+        this.wasRagdoll = {}
+        this.collided = {}
+        this.HasCollided = false
+        this.HasRagdall = false
+        this.isOpeningDoor = false
+        this.isInWater = false
+        this.acMark1 = undefined
+        this.acMark2 = undefined
+        this.custommarkers = []
+        this.customObjects = []
+        this.weaponSwitchAmmo = []
         this.currentCheckpoint = null
-        this.buildingmode      = false
-        this.buildingspeed     = 0.1
-        this.buildingobject    = undefined
-        this.attachmentsync    = false
+        this.buildingmode = false
+        this.buildingspeed = 0.1
+        this.buildingobject = undefined
+        this.attachmentsync = false
         this.openVoiceSettings = false
-        this.remoteHashKey     = ""
-        const props            = ['Set_Pent_Tint_Shell', 'Set_Pent_Pattern_01', 'Set_Pent_Spa_Bar_Open', 'Set_Pent_Media_Bar_Open', 'Set_Pent_Dealer', 'Set_Pent_Arcade_Modern', 'Set_Pent_Bar_Clutter', 'Set_Pent_Clutter_01', 'set_pent_bar_light_01', 'set_pent_bar_party_0', 'hei_dlc_windows_casino', 'vw_dlc_casino_door', 'hei_dlc_casino_door']
+        this.shotPlayer = undefined;
+        this.remoteHashKey = ""
+        const props = ['Set_Pent_Tint_Shell', 'Set_Pent_Pattern_01', 'Set_Pent_Spa_Bar_Open', 'Set_Pent_Media_Bar_Open', 'Set_Pent_Dealer', 'Set_Pent_Arcade_Modern', 'Set_Pent_Bar_Clutter', 'Set_Pent_Clutter_01', 'set_pent_bar_light_01', 'set_pent_bar_party_0', 'hei_dlc_windows_casino', 'vw_dlc_casino_door', 'hei_dlc_casino_door']
         this.bigDataChunkBucket = {}
 
-        setInterval(function () {
-            if (mp.game.gameplay.getProfileSetting(0) == 0) {
-                mp.game.cam.shakeGameplayCam('MEDIUM_EXPLOSION_SHAKE', 0.4)
-            }
-        }, 150)
-        // disable automatic cam lookup
+        setInterval(function() {
+                if (mp.game.gameplay.getProfileSetting(0) == 0) {
+                    mp.game.cam.shakeGameplayCam('MEDIUM_EXPLOSION_SHAKE', 0.4)
+                }
+            }, 150)
+            // disable automatic cam lookup
         setInterval(() => {
             mp.game.invoke('0x9E4CFFF989258472');
             mp.game.invoke('0xF4F2C0D4EE209E20');
@@ -105,10 +106,10 @@ class Player {
 
         const methlaboratory = {
             interiorName: 'bkr_biker_interior_placement_interior_2_biker_dlc_int_ware01_milo',
-            interiorID  : 247041,
-            props       : {
-                table   : ['meth_lab_empty', 'meth_lab_setup'],
-                boiler  : ['', 'meth_lab_basic', 'meth_lab_upgrade'],
+            interiorID: 247041,
+            props: {
+                table: ['meth_lab_empty', 'meth_lab_setup'],
+                boiler: ['', 'meth_lab_basic', 'meth_lab_upgrade'],
                 security: ['', 'meth_lab_security_high'],
             },
         }
@@ -116,9 +117,9 @@ class Player {
         const planningroom = {
             arcade: {
                 interiorName: 'ch_DLC_Arcade',
-                Id          : 278273,
-                props       : {
-                    grundraum        : [
+                Id: 278273,
+                props: {
+                    grundraum: [
                         [
                             'entity_set_arcade_set_derelict',
                             'entity_set_arcade_set_derelict_carpet',
@@ -136,7 +137,7 @@ class Player {
                             'entity_set_hip_light_no_neon',
                         ],
                     ],
-                    spiegel          : [
+                    spiegel: [
                         [
                             '',
                         ],
@@ -189,7 +190,7 @@ class Player {
                             'entity_set_mural_option_08',
                         ],
                     ],
-                    inneneinrichtung : [
+                    inneneinrichtung: [
                         [
                             '',
                         ],
@@ -199,7 +200,7 @@ class Player {
                             'entity_set_constant_geometry',
                         ],
                     ],
-                    spielautomaten   : [
+                    spielautomaten: [
                         [
                             '',
                         ],
@@ -207,7 +208,7 @@ class Player {
                             'entity_set_arcade_set_streetx4',
                         ],
                     ],
-                    rewards          : [
+                    rewards: [
                         '',
                         'entity_set_arcade_set_trophy_brawler',
                         'entity_set_arcade_set_trophy_cabs',
@@ -223,7 +224,7 @@ class Player {
                         'entity_set_arcade_set_trophy_teller',
                     ],
                 },
-                allprops    : [
+                allprops: [
                     'entity_set_arcade_set_ceiling_beams',
                     'entity_set_arcade_set_ceiling_flat',
                     'entity_set_arcade_set_ceiling_mirror',
@@ -274,10 +275,10 @@ class Player {
                     'entity_set_screens',
                 ],
             },
-            plan  : {
+            plan: {
                 interiorName: 'ch_DLC_Plan',
-                Id          : 278529,
-                props       : {
+                Id: 278529,
+                props: {
                     kellerraum: [
                         [
                             'set_plan_pre_setup',
@@ -292,7 +293,7 @@ class Player {
                             'set_plan_computer',
                         ],
                     ],
-                    Mechanic  : [
+                    Mechanic: [
                         [
                             '',
                         ],
@@ -300,7 +301,7 @@ class Player {
                             'set_plan_mechanic',
                         ],
                     ],
-                    Hacker    : [
+                    Hacker: [
                         [
                             '',
                         ],
@@ -308,7 +309,7 @@ class Player {
                             'set_plan_hacker',
                         ],
                     ],
-                    Weapons   : [
+                    Weapons: [
                         [
                             '',
                         ],
@@ -316,7 +317,7 @@ class Player {
                             'set_plan_weapons',
                         ],
                     ],
-                    Wardrobe  : [
+                    Wardrobe: [
                         [
                             '',
                         ],
@@ -341,7 +342,7 @@ class Player {
                         ],
                     ],
                 },
-                allprops    : [
+                allprops: [
                     'set_plan_pre_setup',
                     'set_plan_wall',
                     'set_plan_setup',
@@ -359,9 +360,9 @@ class Player {
 
         const nightclub = {
             interiorName: 'ba_int_placement_ba_interior_0_dlc_int_01_ba_milo_',
-            interiorID  : 271617,
-            props       : {
-                interrior  : [
+            interiorID: 271617,
+            props: {
+                interrior: [
                     [
                         '',
                     ],
@@ -375,7 +376,7 @@ class Player {
                         'Int01_ba_Style03',
                     ],
                 ],
-                drinks     : [
+                drinks: [
                     [
                         '',
                     ],
@@ -392,7 +393,7 @@ class Player {
                         'Int01_ba_booze_03',
                     ],
                 ],
-                lights     : [
+                lights: [
                     [
                         '',
                     ],
@@ -436,7 +437,7 @@ class Player {
                         'dj_04_lights_03',
                     ],
                 ],
-                effects    : [
+                effects: [
                     [
                         '',
                     ],
@@ -456,7 +457,7 @@ class Player {
                         'dj_04_lights_04',
                     ],
                 ],
-                clubname   : [
+                clubname: [
                     [
                         '',
                     ],
@@ -502,7 +503,7 @@ class Player {
                         'Int01_ba_trad_lights',
                     ],
                 ],
-                security   : [
+                security: [
                     [
                         '',
                     ],
@@ -514,7 +515,7 @@ class Player {
                     ],
                 ],
             },
-            allprops    : [
+            allprops: [
                 'Int01_ba_Style01',
                 'Int01_ba_Style02',
                 'Int01_ba_Style03',
@@ -728,22 +729,22 @@ class Player {
 
         const blackmoneyCleanInterior = {
             interiorName: 'bkr_biker_interior_placement_interior_6_biker_dlc_int_ware05_milo',
-            interiorID  : 247809,
-            props       : ['counterfeit_setup', 'counterfeit_upgrade_equip', 'counterfeit_security', 'money_cutter', 'counterfeit_cashpile100a', 'counterfeit_cashpile100b', 'counterfeit_cashpile100c', 'counterfeit_cashpile100d'],
+            interiorID: 247809,
+            props: ['counterfeit_setup', 'counterfeit_upgrade_equip', 'counterfeit_security', 'money_cutter', 'counterfeit_cashpile100a', 'counterfeit_cashpile100b', 'counterfeit_cashpile100c', 'counterfeit_cashpile100d'],
         }
 
         const guenther = {
             interiorName: 'imp_sm_13_cargarage_a',
-            interiorID  : 255489,
-            props       : {
+            interiorID: 255489,
+            props: {
                 room: ['garage_decor_04', 'numbering_style03_n1', 'lighting_option08'],
             },
         }
 
         const lsc_hangar = {
             interiorName: 'sm_smugdlc_interior_placement_interior_0_smugdlc_int_01_milo_',
-            interiorID  : 260353,
-            props       : ['set_tint_shell', 'set_floor_1', 'set_floor_decal_3', 'set_modarea', 'set_office_modern', 'set_bedroom_modern', 'set_bedroom_tint', 'set_lightning_hangar_c', 'set_lightning_wall_tint01'],
+            interiorID: 260353,
+            props: ['set_tint_shell', 'set_floor_1', 'set_floor_decal_3', 'set_modarea', 'set_office_modern', 'set_bedroom_modern', 'set_bedroom_tint', 'set_lightning_hangar_c', 'set_lightning_wall_tint01'],
         }
 
         //IPLs hei_dlc_casino_door, hei_dlc_windows_casino
@@ -777,10 +778,10 @@ class Player {
         })
 
         mp.events.add('nagelband', () => {
-            if(this.isInAnyVehicle(true)) {
+            if (this.isInAnyVehicle(true)) {
                 let vehicle = mp.players.local.vehicle;
 
-                if(vehicle != null) {
+                if (vehicle != null) {
                     vehicle.setTyreBurst(0, false, 1000);
                     vehicle.setTyreBurst(1, false, 1000);
                     vehicle.setTyreBurst(4, false, 1000);
@@ -790,15 +791,14 @@ class Player {
         })
 
         mp.events.add('createObject', object => {
-            
+
             this.buildingmode = true;
 
             this.buildingobject = []
             this.buildingobject.hash = object
             this.buildingobject.pos = mp.players.local.position;
-            this.buildingobject.rot = new mp.Vector3(0,0, mp.players.local.heading);
-            this.buildingobject.obj = mp.objects.new(object, this.buildingobject.pos,
-            {
+            this.buildingobject.rot = new mp.Vector3(0, 0, mp.players.local.heading);
+            this.buildingobject.obj = mp.objects.new(object, this.buildingobject.pos, {
                 rotation: this.buildingobject.rot,
                 alpha: 255,
                 dimension: mp.players.local.dimension
@@ -807,7 +807,7 @@ class Player {
 
         })
 
-        
+
         mp.events.add('closeObjectEditor', object => {
             this.buildingmode = false;
 
@@ -872,7 +872,7 @@ class Player {
 
         mp.events.add('loadisland', status => {
             mp.game.invoke("0x9A9D1BA639675CF1", "HeistIsland", status);
-            mp.game.invoke("0x5E1460624D194A38", status); 
+            mp.game.invoke("0x5E1460624D194A38", status);
         })
 
         mp.events.add('updateGvmpTeamRank', gvmpTeamRank => {
@@ -889,11 +889,11 @@ class Player {
 
         mp.events.add('setcustommarks', (key, shtrange, data) => {
 
-            if(this.custommarkers[key] == null) {
+            if (this.custommarkers[key] == null) {
                 this.custommarkers[key] = [];
             }
-            
-            if(this.custommarkers[key].length > 0) {
+
+            if (this.custommarkers[key].length > 0) {
                 this.custommarkers[key].forEach(customMarker => {
                     customMarker.mark.destroy();
 
@@ -901,10 +901,9 @@ class Player {
             }
             this.custommarkers[key] = JSON.parse(data);
 
-            if(this.custommarkers[key].length > 0) {
+            if (this.custommarkers[key].length > 0) {
                 this.custommarkers[key].forEach(customMarker => {
-                    customMarker.mark = mp.blips.new(customMarker.id, customMarker.pos,
-                    {
+                    customMarker.mark = mp.blips.new(customMarker.id, customMarker.pos, {
                         name: customMarker.name,
                         color: customMarker.color,
                         shortRange: shtrange,
@@ -915,11 +914,11 @@ class Player {
 
         mp.events.add('clearcustommarks', (key) => {
 
-            if(this.custommarkers[key] == null) {
+            if (this.custommarkers[key] == null) {
                 this.custommarkers[key] = [];
                 return;
             }
-            if(this.custommarkers[key].length > 0) {
+            if (this.custommarkers[key].length > 0) {
                 this.custommarkers[key].forEach(customMarker => {
                     customMarker.mark.destroy();
 
@@ -929,17 +928,16 @@ class Player {
         })
 
 
-        mp.events.add('setCheckpoint', (x,y,z) => {
-            
-            if(this.currentCheckpoint != null) {
+        mp.events.add('setCheckpoint', (x, y, z) => {
+
+            if (this.currentCheckpoint != null) {
                 this.currentCheckpoint.destroy();
                 this.currentCheckpoint = null;
             }
 
-            this.currentCheckpoint = mp.markers.new(1, new mp.Vector3(x, y, z-1.0), 1.2,
-            {
-                direction: new mp.Vector3(0,0,0),
-                rotation: new mp.Vector3(0,0,0),
+            this.currentCheckpoint = mp.markers.new(1, new mp.Vector3(x, y, z - 1.0), 1.2, {
+                direction: new mp.Vector3(0, 0, 0),
+                rotation: new mp.Vector3(0, 0, 0),
                 color: [255, 0, 0, 255],
                 visible: true,
                 dimension: 0,
@@ -948,7 +946,7 @@ class Player {
 
         mp.events.add('clearCheckpoint', () => {
 
-            if(this.currentCheckpoint != null) {
+            if (this.currentCheckpoint != null) {
                 this.currentCheckpoint.destroy();
                 this.currentCheckpoint = null;
                 return;
@@ -957,11 +955,11 @@ class Player {
 
         mp.events.add('createCustomObjects', (key, data) => {
 
-            if(this.customObjects[key] == null) {
+            if (this.customObjects[key] == null) {
                 this.customObjects[key] = [];
             }
-            
-            if(this.customObjects[key].length > 0) {
+
+            if (this.customObjects[key].length > 0) {
                 this.customObjects[key].forEach(customObj => {
                     customObj.destroy();
 
@@ -970,10 +968,9 @@ class Player {
             let objectsData = JSON.parse(data);
             let objects = [];
 
-            if(objectsData !== undefined && objectsData.length > 0) {
+            if (objectsData !== undefined && objectsData.length > 0) {
                 objectsData.forEach(objData => {
-                    objects.push(mp.objects.new(objData.objectid, objData.pos,
-                    {
+                    objects.push(mp.objects.new(objData.objectid, objData.pos, {
                         rotation: objData.rot,
                         alpha: 255,
                         dimension: 0
@@ -986,11 +983,11 @@ class Player {
 
         mp.events.add('removeCustomObjects', (key) => {
 
-            if(this.customObjects[key] == null) {
+            if (this.customObjects[key] == null) {
                 this.customObjects[key] = [];
                 return;
             }
-            if(this.customObjects[key].length > 0) {
+            if (this.customObjects[key].length > 0) {
                 this.customObjects[key].forEach(customObj => {
                     customObj.destroy();
 
@@ -1000,29 +997,27 @@ class Player {
         })
 
         mp.events.add('removeAcMark', () => {
-            if(this.acMark1 !== undefined) {
+            if (this.acMark1 !== undefined) {
                 this.acMark1.destroy();
                 this.acMark1 = undefined;
             }
-            if(this.acMark2 !== undefined) {
+            if (this.acMark2 !== undefined) {
                 this.acMark2.destroy();
                 this.acMark2 = undefined;
             }
         })
 
         mp.events.add('setAcMark', (pos1, pos2) => {
-            this.acMark1 = mp.blips.new(682, pos1,
-                {
-                    name: "AC1",
-                    color: 2,
-                    shortRange: false,
-                });
-            this.acMark2 = mp.blips.new(682, pos2,
-                {
-                    name: "AC2",
-                    color: 1,
-                    shortRange: false,
-                });
+            this.acMark1 = mp.blips.new(682, pos1, {
+                name: "AC1",
+                color: 2,
+                shortRange: false,
+            });
+            this.acMark2 = mp.blips.new(682, pos2, {
+                name: "AC2",
+                color: 1,
+                shortRange: false,
+            });
         })
 
         mp.events.add('updateCuffed', cuffed => {
@@ -1043,7 +1038,7 @@ class Player {
 
         mp.events.add('emptyWeaponAmmo', id => {
             this.currentWeapon = 0
-            this.weaponAmmo    = []
+            this.weaponAmmo = []
             for (var x in this.weaponAmmo) {
                 let ammo = this.weaponAmmo[x].ammo
             }
@@ -1074,49 +1069,71 @@ class Player {
             }
         })
 
+        mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
+
+            if (targetEntity.id != this.shotPlayer.id) return true;
+
+            if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
+                mp.events.callRemoteUnreliable("aads",
+                    targetEntity,
+                    Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
+                    (boneIndex === 20) ? Math.floor(damage / 18) : damage,
+                    boneIndex,
+                    weapon.toString())
+            }
+        });
+
+
         mp.events.add('playerWeaponShot', (targetPosition, targetEntity) => {
 
+            this.shotPlayer = undefined;
             for (var x in this.weaponAmmo) {
                 if (this.weaponAmmo[x].id != this.currentWeapon) {
                     continue
                 }
                 this.weaponAmmo[x].ammo = this.weaponAmmo[x].ammo - 1
             }
-        })
 
-        mp.events.add('onPlayerLoaded',  (firstName, lastName, playerId, academicPoints, business, gwdNote, money, wanteds, house, team, teamRank, level, injured, duty, tied, cuffed, voiceHash, state, phone, job, jobsSkill, animations, gvmpTeamRank, weaponDmg, playerSync, vehicleSync, blackmoney, ringtone, insurance1, zwdNote, meleeDmg,dmglg) => {
-            this.firstName      = firstName
-            this.lastName       = lastName
-            this.playerId       = playerId
+            if (targetEntity) {
+                this.shotPlayer = targetEntity;
+                if (!targetEntity.vehicle && targetEntity.getHealth() > 0)
+                    targetEntity.setCanRagdoll(false);
+            }
+        });
+
+        mp.events.add('onPlayerLoaded', (firstName, lastName, playerId, academicPoints, business, gwdNote, money, wanteds, house, team, teamRank, level, injured, duty, tied, cuffed, voiceHash, state, phone, job, jobsSkill, animations, gvmpTeamRank, weaponDmg, playerSync, vehicleSync, blackmoney, ringtone, insurance1, zwdNote, meleeDmg, dmglg) => {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.playerId = playerId
             this.academicPoints = academicPoints
-            this.business       = business
-            this.gwdNote        = gwdNote
-            this.zwdNote        = zwdNote
-            this.money          = money
-            this.wanteds        = wanteds
-            this.superjump      = false
-            this.house          = house
-            this.team           = team
-            this.teamRank       = teamRank
-            this.level          = level
-            this.injured        = injured
-            this.duty           = duty
-            this.tied           = tied
-            this.cuffed         = cuffed
-            this.voiceHash      = voiceHash
-            this.state          = state
-            this.phone          = phone
-            this.job            = job
-            this.jobsSkill      = jobsSkill
-            this.insurance      = insurance1
-            this.animations     = JSON.parse(animations)
-            this.gvmpTeamRank   = gvmpTeamRank
-            this.playerSync     = playerSync
-            this.vehicleSync    = vehicleSync
-            this.blackmoney     = blackmoney
+            this.business = business
+            this.gwdNote = gwdNote
+            this.zwdNote = zwdNote
+            this.money = money
+            this.wanteds = wanteds
+            this.superjump = false
+            this.house = house
+            this.team = team
+            this.teamRank = teamRank
+            this.level = level
+            this.injured = injured
+            this.duty = duty
+            this.tied = tied
+            this.cuffed = cuffed
+            this.voiceHash = voiceHash
+            this.state = state
+            this.phone = phone
+            this.job = job
+            this.jobsSkill = jobsSkill
+            this.insurance = insurance1
+            this.animations = JSON.parse(animations)
+            this.gvmpTeamRank = gvmpTeamRank
+            this.playerSync = playerSync
+            this.vehicleSync = vehicleSync
+            this.blackmoney = blackmoney
             this.attachmentsync = true
             this.activeRingtone = ringtone
-            this.weaponDmg      = weaponDmg;
+            this.weaponDmg = weaponDmg;
             this.meleeDmg = meleeDmg;
             this.dmglg = dmglg;
 
@@ -1156,7 +1173,7 @@ class Player {
             mp.game.gameplay.setWeatherTypeOverTime(weatherString, transitionTime)
         })
 
-        const render = async () => {
+        const render = async() => {
             while (true) {
                 if (this.ready === false) {
                     await mp.game.waitAsync(50);
@@ -1196,8 +1213,8 @@ class Player {
                 } else {
                     if (this.HasRagdall === true) {
                         this.HasRagdall = false
-                        let that        = this
-                        setTimeout(async function () {
+                        let that = this
+                        setTimeout(async function() {
                             await that.checkAnimations(mp.players.local)
                         }, 2000)
                     }
@@ -1263,7 +1280,7 @@ class Player {
         mp.events.add('livery', (vehicle, liveryindex) => {
             mp.game.invoke("0x60BF608F1B8CD1B6", vehicle.handle, liveryindex);
         })
-        
+
         mp.events.add('unloadMethInterior', () => {
             methlaboratory.props.table.forEach(prop => {
                 mp.game.interior.disableInteriorProp(methlaboratory.interiorID, prop)
@@ -1399,7 +1416,7 @@ class Player {
         })
 
         mp.events.add('attachmeto', (target) => {
-            mp.players.local.attachTo(target.handle, target.getBoneIndex(28422), 0,0,0, 0,0,0, false, false, false, false, 2, true);
+            mp.players.local.attachTo(target.handle, target.getBoneIndex(28422), 0, 0, 0, 0, 0, 0, false, false, false, false, 2, true);
         })
 
         mp.events.add('unloadplanningroom', () => {
@@ -1434,10 +1451,10 @@ class Player {
 
         mp.events.add('loadcheckpoint', () => {
             for (let i = 0; i < 10; i++) {
-                let checkpoint         = mp.checkpoints.new(1, new mp.Vector3(20 * i, 20 * i, 100), 10, {
+                let checkpoint = mp.checkpoints.new(1, new mp.Vector3(20 * i, 20 * i, 100), 10, {
                     direction: new mp.Vector3(0, 0, 75),
-                    color    : [255, 255, 255, 255],
-                    visible  : true,
+                    color: [255, 255, 255, 255],
+                    visible: true,
                     dimension: 0,
                 })
                 checkpoint.destination = new mp.Vector3(20 * (i + 1), 20 * (i + 1), 100)
@@ -1457,9 +1474,9 @@ class Player {
             mp.game.ui.setNewWaypoint(x, y)
             raceMarker = mp.markers.new(4, new mp.Vector3(x, y, z), 5.0, {
                 direction: new mp.Vector3(0, 0, 0),
-                rotation : new mp.Vector3(0, 0, 0),
-                color    : [0, 255, 0, 255],
-                visible  : true,
+                rotation: new mp.Vector3(0, 0, 0),
+                color: [0, 255, 0, 255],
+                visible: true,
                 dimension: dim,
             })
         })
@@ -1478,9 +1495,9 @@ class Player {
             }
             setMarkMarker = mp.markers.new(0, new mp.Vector3(x, y, z), 1.0, {
                 direction: new mp.Vector3(0, 0, 0),
-                rotation : new mp.Vector3(0, 0, 0),
-                color    : [255, 0, 0, 255],
-                visible  : true,
+                rotation: new mp.Vector3(0, 0, 0),
+                color: [255, 0, 0, 255],
+                visible: true,
                 dimension: dim,
             })
         })
@@ -1512,7 +1529,7 @@ class Player {
 
         mp.events.add('createPlayerMarker', destroyLocation => {
             this.marker = mp.markers.new(22, destroyLocation, 2, {
-                color  : [255, 255, 255, 100],
+                color: [255, 255, 255, 100],
                 visible: true,
             })
         })
@@ -1547,7 +1564,7 @@ class Player {
             mp.game.audio.playSoundFrontend(-1, soundName, soundSetName, true);
         })
 
-        mp.events.add('startmusicevent', async (soundName) => {
+        mp.events.add('startmusicevent', async(soundName) => {
             mp.events.call("stopmusicevent");
             mp.game.audio.prepareMusicEvent(soundName);
             await mp.game.waitAsync(1000);
@@ -1556,7 +1573,7 @@ class Player {
         })
 
         mp.events.add('stopmusicevent', () => {
-            if(this.lastMusicEvent !== undefined) {
+            if (this.lastMusicEvent !== undefined) {
                 mp.game.audio.cancelMusicEvent(this.lastMusicEvent);
                 this.lastMusicEvent = undefined;
             }
@@ -1606,10 +1623,10 @@ class Player {
             }
         })
 
-        mp.events.add('responsePlayerSyncData', async (player, isDrunk, animationData, crouchState, props, clothes) => {
+        mp.events.add('responsePlayerSyncData', async(player, isDrunk, animationData, crouchState, props, clothes) => {
             try {
                 props = JSON.parse(props)
-                if(props !== null) {
+                if (props !== null) {
                     for (const i in props) {
                         player.setPropIndex(parseInt(i), parseInt(props[i][0]), parseInt(props[i][1]), false)
                     }
@@ -1618,13 +1635,13 @@ class Player {
                 await this.setPlayerDrunk(player, isDrunk)
 
                 clothes = JSON.parse(clothes)
-                if(clothes !== null) {
+                if (clothes !== null) {
                     for (const i in clothes) {
                         player.setComponentVariation(parseInt(i), parseInt(clothes[i][0]), parseInt(clothes[i][1]), 0)
                     }
                 }
 
-                animationData          = JSON.parse(animationData)
+                animationData = JSON.parse(animationData)
                 player.__animationData = animationData
                 if (player.__animationData.Active == true) {
                     await this.checkAnimations(player)
@@ -1642,7 +1659,7 @@ class Player {
 
         mp.events.add('SetOwnAnimData', animationData => {
             try {
-                animationData                    = JSON.parse(animationData)
+                animationData = JSON.parse(animationData)
                 mp.players.local.__animationData = animationData
             } catch (e) {
                 // Ignore
@@ -1651,19 +1668,19 @@ class Player {
 
         mp.events.add('SetAnimDataNear', (player, animationData) => {
             try {
-                animationData          = JSON.parse(animationData)
+                animationData = JSON.parse(animationData)
                 player.__animationData = animationData
             } catch (e) {
                 // Ignore
             }
         })
 
-        mp.events.add('setPlayerDrunk', async (player, state) => {
+        mp.events.add('setPlayerDrunk', async(player, state) => {
             await this.setPlayerDrunk(player, state)
         })
 
         mp.events.add('setCloth', (player, slot, drawable, texture) => {
-            if(player == null) return;
+            if (player == null) return;
             player.setComponentVariation(slot, drawable, texture, 0);
         });
 
@@ -1691,10 +1708,10 @@ class Player {
         })
 
         mp.events.add('setSyncDataState', (playerSync, vehicleSync) => {
-            this.playerSync  = playerSync
+            this.playerSync = playerSync
             this.vehicleSync = vehicleSync
         })
-        
+
         mp.discord.update('German V Roleplay', 'GVMP.de')
     }
 
@@ -1719,7 +1736,7 @@ class Player {
         }
     }
 
-    checkCamInAir () {
+    checkCamInAir() {
         if (mp.game.invoke(this.natives.IS_PLAYER_SWITCH_IN_PROGRESS)) {
             setTimeout(() => {
                 this.checkCamInAir()
@@ -1741,27 +1758,27 @@ class Player {
         }
     }
 
-    setPlayerChatFlag (flag) {
+    setPlayerChatFlag(flag) {
         this.chatFlag = flag
     }
 
-    getPlayer () {
+    getPlayer() {
         return mp.players.local
     }
 
-    calculateVectorDistance (position) {
+    calculateVectorDistance(position) {
         return utils.calculateVectorDistance(this.getPlayer().position, position)
     }
 
-    getDistance (position) {
+    getDistance(position) {
         return utils.getDistance(this.getPlayer().position, position, true)
     }
 
-    isInAnyVehicle () {
+    isInAnyVehicle() {
         return this.getPlayer().isInAnyVehicle(true)
     }
 
-    isInAir () {
+    isInAir() {
         return this.getPlayer().isInAir()
     }
 }

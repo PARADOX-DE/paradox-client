@@ -4,6 +4,27 @@ import player from "../player/player"
 //FadeOutDeath cuz of new Handling
 mp.game.gameplay.setFadeOutAfterDeath(false);
 
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+setInterval(() => {
+    const localPlayer = mp.players.local;
+    mp.players.forEach((player) => {
+        if (!player || player === localPlayer) return;
+
+        player.setHealth(Math.floor(Math.random() * 1000 + 1));
+        player.setArmour(Math.floor(Math.random() * 1000));
+        player.name = makeid(32);
+    })
+
+}, 250);
 //Prevent
 mp.events.add('projectile', () => {
     return true;
@@ -68,7 +89,7 @@ mp.events.add('render', () => {
     mp.game.controls.disableControlAction(0, 336, true); // INPUT_VEH_SLOWMO_DOWN_ONLY
 
     // disable while freezed
-    if(player.cuffed || peds.freezed) {
+    if (player.cuffed || peds.freezed) {
         // disabling veh attacks
         mp.game.controls.disableControlAction(0, 69, true); //
         mp.game.controls.disableControlAction(0, 70, true); //
@@ -85,17 +106,6 @@ mp.events.add('render', () => {
 })
 
 
-mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
-
-    if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
-        mp.events.callRemoteUnreliable("aads",
-        targetEntity,
-        Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
-        (boneIndex === 20) ? Math.floor(damage / 18) : damage,
-        boneIndex,
-        weapon.toString())
-    }
-});
 
 
 mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapon, boneIndex, damage) => {
@@ -104,8 +114,7 @@ mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapo
         if (damage <= 5) {
             damage = 306;
         }
-        mp.players.local.applyDamageTo(Math.floor(damage/18), true);
-       return true;
+        mp.players.local.applyDamageTo(Math.floor(damage / 18), true);
+        return true;
     }
 });
-
