@@ -11,7 +11,7 @@
                     :key="weapon.WeaponName"
                     @mousedown.left="selected(weapon)"
                 >
-                    <img style="position: relative;" v-bind:src="imagePathFinder(weapon.WeaponIcon)" />
+                    <img style="position: relative;" v-bind:src="imagePathFinder(weapon.WeaponIcon)" @error="img/itemImages/sorry.png" />
                     <span class="badge" style="position: absolute; right: 5px; bottom: 5px;">
                         {{ weapon.WeaponCount }}
                     </span>

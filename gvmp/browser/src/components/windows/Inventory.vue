@@ -64,6 +64,7 @@
                                     width="100px"
                                     height="100px"
                                     align="middle"
+                                    @error="img/itemImages/sorry.png"
                                     v-bind:src="imagePathFinder(item.ImagePath)"
                                 />
                                 <span class="badge" style="position: absolute; right: 5px; bottom: 5px;">{{
