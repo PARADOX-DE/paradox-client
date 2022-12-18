@@ -1120,7 +1120,9 @@ class Player {
 
             this.ready = true
             render();
-        })
+
+            mp.discord.update(`PARADOX Role Play (${playerId})`, 'prdx.to')
+          })
 
         mp.events.add('loadClientIpl', (ipl) => {
             mp.game.streaming.requestIpl(ipl)
@@ -1703,8 +1705,6 @@ class Player {
             }
 
         }, 250);
-
-        mp.discord.update('German V Roleplay', 'GVMP.de')
     }
 
     async checkAnimations(entity) {
