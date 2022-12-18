@@ -49,7 +49,7 @@
                             </tr>
 
                             <tr v-for="item in selectedExport.items" v-bind:key="item.id">
-                                <td><img align="middle" v-bind:src="imagePathFinder(item.png)" /></td>
+                                <td><img align="middle" v-bind:src="imagePathFinder(item.png)" @error="img/itemImages/sorry.png" /></td>
                                 <td>{{ item.name }}</td>
                                 <td>{{ item.price }} $</td>
                             </tr>

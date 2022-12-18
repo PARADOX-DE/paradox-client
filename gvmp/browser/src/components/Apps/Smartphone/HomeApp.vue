@@ -8,7 +8,7 @@
             <p v-if="anrufablehnen == true" class="fas fa-phone-slash phoneslash"></p>
             <div class="apps">
                 <div class="app" v-for="app in apps" :key="app.id" v-on:click="selectApp(app)">
-                    <img v-bind:src="imagePathFinder(app.icon)" class="imgFuchs" />
+                    <img v-bind:src="imagePathFinder(app.icon)" @error="img/itemImages/sorry.png" class="imgFuchs" />
                     <p style="font-size: 1.2vh;" class="pFuchs">{{ app.name }}</p>
                 </div>
             </div>

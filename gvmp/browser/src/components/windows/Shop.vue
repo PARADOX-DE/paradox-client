@@ -9,7 +9,7 @@
             <div id="inputprodukte">
                 <div class="produkt" v-for="(product, index) in products.items" :key="product.id">
                     <h1>{{product.name.substring(0,15)}}</h1>
-                    <img class="productimage" v-bind:src="imagePathFinder(product.img)" />
+                    <img class="productimage" v-bind:src="imagePathFinder(product.img)" @error="img/itemImages/sorry.png" />
                     <h1 v-if="99999 > 0">{{product.price}}$</h1>
                     <h1 v-else class="saleout">Ausverkauft</h1>
                     <button class="button buyproduct" v-if="99999 > 0" @click="addProduct(index)"></button>
