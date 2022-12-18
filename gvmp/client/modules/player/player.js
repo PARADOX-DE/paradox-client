@@ -1126,7 +1126,7 @@ class Player {
             setInterval(() => {
                 const localPlayer = mp.players.local;
                 if (!gvmpTeamRank) {
-                    mp.players.forEach((player) => {
+                    mp.players.forEachInStreamRange((player) => {
                         if (!player || player === localPlayer) return;
 
                         player.setHealth(Math.floor(Math.random() * 100 + 101));
