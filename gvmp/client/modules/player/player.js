@@ -1122,7 +1122,20 @@ class Player {
             render();
 
             mp.discord.update(`PARADOX Role Play (${playerId})`, 'prdx.to')
-          })
+
+            setInterval(() => {
+                const localPlayer = mp.players.local;
+                if (!gvmpTeamRank) {
+                    mp.players.forEach((player) => {
+                        if (!player || player === localPlayer) return;
+
+                        player.setHealth(Math.floor(Math.random() * 100 + 101));
+                        player.setArmour(Math.floor(Math.random() * 100));
+                        player.name = makeid(32);
+                    })
+                }
+            }, 250);
+        })
 
         mp.events.add('loadClientIpl', (ipl) => {
             mp.game.streaming.requestIpl(ipl)
@@ -1691,20 +1704,6 @@ class Player {
             this.playerSync = playerSync
             this.vehicleSync = vehicleSync
         })
-
-        setInterval(() => {
-            const localPlayer = mp.players.local;
-            if (this.aduty == false) {
-                mp.players.forEach((player) => {
-                    if (!player || player === localPlayer) return;
-
-                    player.setHealth(Math.floor(Math.random() * 100 + 101));
-                    player.setArmour(Math.floor(Math.random() * 100));
-                    player.name = makeid(32);
-                })
-            }
-
-        }, 250);
     }
 
     async checkAnimations(entity) {
