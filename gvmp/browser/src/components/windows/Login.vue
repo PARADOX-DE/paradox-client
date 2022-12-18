@@ -1,7 +1,7 @@
 <!--TODO: add loading spinner-->
 <template>
     <div class="login_window_gvmp">
-        <div class="login_window_left"><img :src="require ('@/assets/gvmp_login_logo.jpg')"></div>
+        <div class="login_window_left"><img :src="require ('@/assets/paradox-logo.png')"></div>
         <div class="login_window_right">
             <div class="login_window_right_reverse">
                 <div v-if="kickmode == false && wrongmode == false">
@@ -146,23 +146,21 @@ export default {
 }
 
 .login_window_gvmp .login_window_left {
-    width: 35%;
+    width: 31%;
     height: 100%;
     overflow: hidden;
     float: left;
-    box-shadow: -1vh 0 0px 0px rgba(218, 114, 0, 0.9);
+    box-shadow: -1vh 0 0px 0px #278790;
+    border-radius: 10px 0px 0px 10px;
     background-size: cover;
     transform-origin: bottom left;
     text-align: center;
     line-height: 50vh;
-    transform: skewX(-30deg);
 }
 
 .login_window_gvmp .login_window_left img {
     height: 100%;
     width: auto;
-    margin-left: -80%;
-    transform: skewX(30deg);
 }
 
 .login_window_gvmp .changelog_button {
@@ -174,18 +172,13 @@ export default {
 }
 
 .login_window_gvmp .login_window_right {
-    width: 65%;
+    width: 69%;
     height: 100%;
     float: right;
     text-align: center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
     transform-origin: bottom left;
-    box-shadow: 1vh 0px 0px 0px rgba(218, 114, 0, 0.9);
-    transform: skewX(-30deg);
-}
-
-.login_window_gvmp .login_window_right_reverse {
-    transform: skewX(30deg);
+    box-shadow: 1vh 0px 0px 0px rgb(39, 135, 144);
 }
 
 .login_window_gvmp .login_window_right .login_welcome {
@@ -228,12 +221,12 @@ export default {
     margin: 0 auto;
     font-size: 1.5vh;
     line-height: 3em;
-    background-image: linear-gradient(#fd9600, #ca8217);
+    background-image: linear-gradient(#278790, #1f737a);
     box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.25);
 }
 
 .login_window_gvmp .login_window_right .login_button:hover {
-    background-image: linear-gradient(#fd9600, #e68b07);
+    background-image: linear-gradient(#278790, #176d75);
     cursor: pointer;
 }
 
