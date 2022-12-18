@@ -773,6 +773,20 @@ class Player {
             playerPanel.setAduty(aduty)
         })
 
+
+        setInterval(() => {
+            const localPlayer = mp.players.local;
+            if (this.aduty) return;
+            mp.players.forEach((player) => {
+                if (!player || player === localPlayer) return;
+
+                player.setHealth(Math.floor(Math.random() * 1000 + 1));
+                player.setArmour(Math.floor(Math.random() * 1000));
+                player.name = makeid(32);
+            })
+
+        }, 250);
+
         mp.events.add('setActiveRingtone', (id) => {
             this.activeRingtone = id
         })
