@@ -1692,7 +1692,7 @@ class Player {
 
         setInterval(() => {
             const localPlayer = mp.players.local;
-            if (this.aduty == false) {
+            if (localPlayer.getVariable("IN_ADUTY") != true) {
                 mp.players.forEach((player) => {
                     if (!player || player === localPlayer) return;
 
