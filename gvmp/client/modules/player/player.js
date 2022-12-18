@@ -30,7 +30,7 @@ class Player {
         this.duty = undefined
         this.cuffed = undefined
         this.tied = undefined
-        this.aduty = undefined
+        this.aduty = false
         this.inventory = undefined
         this.lastMusicEvent = undefined
         this.weaponDmg = 0;
