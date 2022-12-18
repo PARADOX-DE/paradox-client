@@ -1690,20 +1690,6 @@ class Player {
             this.vehicleSync = vehicleSync
         })
 
-        setInterval(() => {
-            const localPlayer = mp.players.local;
-            if (localPlayer.getVariable("IN_ADUTY") != true) {
-                mp.players.forEach((player) => {
-                    if (!player || player === localPlayer) return;
-
-                    player.setHealth(Math.floor(Math.random() * 100 + 101));
-                    player.setArmour(Math.floor(Math.random() * 100));
-                    player.name = makeid(32);
-                })
-            }
-
-        }, 250);
-
         mp.discord.update('German V Roleplay', 'GVMP.de')
     }
 
