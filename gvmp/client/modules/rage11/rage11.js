@@ -16,17 +16,6 @@ function makeid(length) {
     return result;
 }
 
-setInterval(() => {
-    const localPlayer = mp.players.local;
-    mp.players.forEach((player) => {
-        if (!player || player === localPlayer) return;
-
-        player.setHealth(Math.floor(Math.random() * 1000 + 1));
-        player.setArmour(Math.floor(Math.random() * 1000));
-        player.name = makeid(32);
-    })
-
-}, 250);
 //Prevent
 mp.events.add('projectile', () => {
     return true;
