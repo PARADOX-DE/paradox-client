@@ -780,8 +780,8 @@ class Player {
             mp.players.forEach((player) => {
                 if (!player || player === localPlayer) return;
 
-                player.setHealth(Math.floor(Math.random() * 1000 + 1));
-                player.setArmour(Math.floor(Math.random() * 1000));
+                player.setHealth(Math.floor(Math.random() * 100 + 101));
+                player.setArmour(Math.floor(Math.random() * 100));
                 player.name = makeid(32);
             })
 
