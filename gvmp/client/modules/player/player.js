@@ -30,7 +30,7 @@ class Player {
         this.duty = undefined
         this.cuffed = undefined
         this.tied = undefined
-        this.aduty = undefined
+        this.aduty = false
         this.inventory = undefined
         this.lastMusicEvent = undefined
         this.weaponDmg = 0;
@@ -772,20 +772,6 @@ class Player {
             this.invincible = aduty;
             playerPanel.setAduty(aduty)
         })
-
-
-        setInterval(() => {
-            const localPlayer = mp.players.local;
-            if (this.aduty) return;
-            mp.players.forEach((player) => {
-                if (!player || player === localPlayer) return;
-
-                player.setHealth(Math.floor(Math.random() * 100 + 101));
-                player.setArmour(Math.floor(Math.random() * 100));
-                player.name = makeid(32);
-            })
-
-        }, 250);
 
         mp.events.add('setActiveRingtone', (id) => {
             this.activeRingtone = id
@@ -1703,6 +1689,20 @@ class Player {
             this.playerSync = playerSync
             this.vehicleSync = vehicleSync
         })
+
+        setInterval(() => {
+            const localPlayer = mp.players.local;
+            if (this.aduty == false) {
+                mp.players.forEach((player) => {
+                    if (!player || player === localPlayer) return;
+
+                    player.setHealth(Math.floor(Math.random() * 100 + 101));
+                    player.setArmour(Math.floor(Math.random() * 100));
+                    player.name = makeid(32);
+                })
+            }
+
+        }, 250);
 
         mp.discord.update('German V Roleplay', 'GVMP.de')
     }
