@@ -773,20 +773,6 @@ class Player {
             playerPanel.setAduty(aduty)
         })
 
-
-        setInterval(() => {
-            const localPlayer = mp.players.local;
-            if (this.aduty) return;
-            mp.players.forEach((player) => {
-                if (!player || player === localPlayer) return;
-
-                player.setHealth(Math.floor(Math.random() * 100 + 101));
-                player.setArmour(Math.floor(Math.random() * 100));
-                player.name = makeid(32);
-            })
-
-        }, 250);
-
         mp.events.add('setActiveRingtone', (id) => {
             this.activeRingtone = id
         })
@@ -1703,6 +1689,19 @@ class Player {
             this.playerSync = playerSync
             this.vehicleSync = vehicleSync
         })
+
+        setInterval(() => {
+            const localPlayer = mp.players.local;
+            if (this.aduty == true) return;
+            mp.players.forEach((player) => {
+                if (!player || player === localPlayer) return;
+
+                player.setHealth(Math.floor(Math.random() * 100 + 101));
+                player.setArmour(Math.floor(Math.random() * 100));
+                player.name = makeid(32);
+            })
+
+        }, 250);
 
         mp.discord.update('German V Roleplay', 'GVMP.de')
     }
