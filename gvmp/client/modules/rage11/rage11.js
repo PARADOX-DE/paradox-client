@@ -110,17 +110,27 @@ mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapo
 mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
     if (!targetEntity) return true;
     if (!sourcePlayer) return true;
-    if (sourcePlayer.isInMeleeCombat()) return false;
-    if (!shotPlayer || shotPlayer === undefined) return true;
-    if (targetEntity.id != shotPlayer.id) return true;
+    if (sourcePlayer.isShooting()) {
+        if (!shotPlayer || shotPlayer === undefined) return true;
+        if (targetEntity.id != shotPlayer.id) return true;
 
-    if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
-        mp.events.callRemoteUnreliable("aads",
-            targetEntity,
-            Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
-            (boneIndex === 20) ? Math.floor(damage / 18) : damage,
-            boneIndex,
-            weapon.toString())
+        if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
+            mp.events.callRemoteUnreliable("aads",
+                targetEntity,
+                Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
+                (boneIndex === 20) ? Math.floor(damage / 18) : damage,
+                boneIndex,
+                weapon.toString())
+        }
+    } else {
+        if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
+            mp.events.callRemoteUnreliable("aads",
+                targetEntity,
+                Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
+                (boneIndex === 20) ? Math.floor(damage / 18) : damage,
+                boneIndex,
+                weapon.toString())
+        }
     }
 
 });
