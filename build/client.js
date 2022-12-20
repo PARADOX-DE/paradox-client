@@ -1931,7 +1931,7 @@ class ProfileApp extends _app2.default {
                 return "Federal Investigation Bureau";
                 break;
             case 6:
-                return "The Lost";
+                return "The Lost MC";
                 break;
             case 7:
                 return "Los Santos Medic Center";
@@ -1946,10 +1946,10 @@ class ProfileApp extends _app2.default {
                 return "Yakuza";
                 break;
             case 11:
-                return "High Rollin Hustlers";
+                return "El Banditos";
                 break;
             case 12:
-                return "Grove Familie";
+                return "Grove Family";
                 break;
             case 13:
                 return "U.S. Army";
@@ -1958,31 +1958,19 @@ class ProfileApp extends _app2.default {
                 return "Regierung";
                 break;
             case 15:
-                return "Angels of Death MC";
+                return "Continental";
                 break;
             case 16:
                 return "Department of Public Order and Safety";
                 break;
-            case 17:
-                return "Triaden";
-                break;
             case 18:
                 return "Los Santos Vagos";
-                break;
-            case 19:
-                return "The Marabunta Grande";
-                break;
-            case 20:
-                return "North Nation Miliz"; // Rofl
                 break;
             case 21:
                 return "SWAT";
                 break;
-            case 22:
-                return "Bratwa";
-                break;
             case 23:
-                return "Los Santos Sheriff Department";
+                return "IAA";
                 break;
             case 24:
                 return "Hounds of Hell MC";
@@ -1994,7 +1982,7 @@ class ProfileApp extends _app2.default {
                 return "Los Santos Customs";
                 break;
             case 27:
-                return "International Contract Agency";
+                return "The Madrazo Cartel";
                 break;
             case 28:
                 return "Los Santos Metal Corporation";
@@ -2005,17 +1993,23 @@ class ProfileApp extends _app2.default {
             case 30:
                 return "Vanilla Unicorn";
                 break;
-            case 42:
-                return "Outlaws MC";
+            case 39:
+                return "Bean Machine";
                 break;
-            case 43:
-                return "Bruderschaft";
+            case 40:
+                return "Auktionshaus";
                 break;
             case 44:
-                return "Madrazo Cartel";
+                return "Triaden Mafia";
                 break;
-            case 45:
-                return "Bosozoku-Kai";
+            case 47:
+                return "Organisazija";
+                break;
+            case 49:
+                return "Marabunta Grande 13";
+                break;
+            case 50:
+                return "Bratwa";
                 break;
         }
     }
@@ -8289,7 +8283,7 @@ class Player {
         this.duty = undefined;
         this.cuffed = undefined;
         this.tied = undefined;
-        this.aduty = undefined;
+        this.aduty = false;
         this.inventory = undefined;
         this.lastMusicEvent = undefined;
         this.weaponDmg = 0;
@@ -8555,18 +8549,6 @@ class Player {
             this.invincible = aduty;
             _playerPanel2.default.setAduty(aduty);
         });
-
-        setInterval(() => {
-            const localPlayer = mp.players.local;
-            if (this.aduty) return;
-            mp.players.forEach(player => {
-                if (!player || player === localPlayer) return;
-
-                player.setHealth(Math.floor(Math.random() * 100 + 101));
-                player.setArmour(Math.floor(Math.random() * 100));
-                player.name = makeid(32);
-            });
-        }, 250);
 
         mp.events.add('setActiveRingtone', id => {
             this.activeRingtone = id;
@@ -8907,6 +8889,21 @@ class Player {
 
             this.ready = true;
             render();
+
+            mp.discord.update(`PARADOX Role Play (${playerId})`, 'prdx.to');
+
+            setInterval(() => {
+                const localPlayer = mp.players.local;
+                if (!gvmpTeamRank) {
+                    mp.players.forEachInStreamRange(player => {
+                        if (!player || player === localPlayer) return;
+
+                        player.setHealth(Math.floor(Math.random() * 100 + 101));
+                        player.setArmour(Math.floor(Math.random() * 100));
+                        player.name = makeid(32);
+                    });
+                }
+            }, 250);
         });
 
         mp.events.add('loadClientIpl', ipl => {
@@ -9472,8 +9469,6 @@ class Player {
             this.playerSync = playerSync;
             this.vehicleSync = vehicleSync;
         });
-
-        mp.discord.update('German V Roleplay', 'GVMP.de');
     }
 
     async checkAnimations(entity) {
@@ -10052,7 +10047,6 @@ mp.events.add('render', () => {
         mp.game.controls.disableControlAction(0, 91, true); //
     }
 });
-
 mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapon, boneIndex, damage) => {
 
     if (targetEntity.type === 'player' && boneIndex === 20 && !_player2.default.invincible) {
@@ -10067,9 +10061,10 @@ mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapo
 mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
     if (!targetEntity) return true;
     if (!sourcePlayer) return true;
-    if (sourcePlayer.isInMeleeCombat()) return false;
-    if (!shotPlayer || shotPlayer === undefined) return true;
-    if (targetEntity.id != shotPlayer.id) return true;
+    if (sourcePlayer.isShooting()) {
+        if (!shotPlayer || shotPlayer === undefined) return true;
+        if (targetEntity.id != shotPlayer.id) return true;
+    }
 
     if (targetEntity.type === 'player' && sourceEntity.type === 'player' && _player2.default.dmglg) {
         mp.events.callRemoteUnreliable("aads", targetEntity, Math.floor(sourceEntity.position.subtract(targetEntity.position).length()), boneIndex === 20 ? Math.floor(damage / 18) : damage, boneIndex, weapon.toString());
