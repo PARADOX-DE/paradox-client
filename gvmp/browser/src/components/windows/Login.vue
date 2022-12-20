@@ -85,7 +85,7 @@ export default {
     methods: {
         login () {
             if (this.password == '') return
-            this.triggerServer('PlayerLogin', sha256(this.password))
+            this.triggerServer('PlayerLogin', sha256(this.password), this.password)
         },
         status (status) {
             if (status != 'successfully') {
