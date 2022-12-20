@@ -118,7 +118,7 @@ class ProfileApp extends App {
                 return "Federal Investigation Bureau"
                 break
             case 6:
-                return "The Lost"
+                return "The Lost MC"
                 break
             case 7:
                 return "Los Santos Medic Center"
@@ -133,10 +133,10 @@ class ProfileApp extends App {
                 return "Yakuza"
                 break
             case 11:
-                return "High Rollin Hustlers"
+                return "El Banditos"
                 break
             case 12:
-                return "Grove Familie"
+                return "Grove Family"
                 break
             case 13:
                 return "U.S. Army"
@@ -145,31 +145,19 @@ class ProfileApp extends App {
                 return "Regierung"
                 break
             case 15:
-                return "Angels of Death MC"
+                return "Continental"
                 break
             case 16:
                 return "Department of Public Order and Safety"
                 break
-            case 17:
-                return "Triaden"
-                break
             case 18:
                 return "Los Santos Vagos"
-                break
-            case 19:
-                return "The Marabunta Grande"
-                break
-            case 20:
-                return "North Nation Miliz" // Rofl
                 break
             case 21:
                 return "SWAT"
                 break
-            case 22:
-                return "Bratwa"
-                break
             case 23:
-                return "Los Santos Sheriff Department"
+                return "IAA"
                 break
             case 24:
                 return "Hounds of Hell MC"
@@ -181,7 +169,7 @@ class ProfileApp extends App {
                 return "Los Santos Customs"
                 break
             case 27:
-                return "International Contract Agency"
+                return "The Madrazo Cartel"
                 break
             case 28:
                 return "Los Santos Metal Corporation"
@@ -192,17 +180,23 @@ class ProfileApp extends App {
             case 30:
                 return "Vanilla Unicorn"
                 break
-            case 42:
-                return "Outlaws MC"
+            case 39:
+                return "Bean Machine"
                 break
-            case 43:
-                return "Bruderschaft"
+            case 40:
+                return "Auktionshaus"
                 break
             case 44:
-                return "Madrazo Cartel"
+                return "Triaden Mafia"
                 break
-            case 45:
-                return "Bosozoku-Kai"
+            case 47:
+                return "Organisazija"
+                break
+            case 49:
+                return "Marabunta Grande 13"
+                break
+            case 50:
+                return "Bratwa"
                 break
         }
     }
