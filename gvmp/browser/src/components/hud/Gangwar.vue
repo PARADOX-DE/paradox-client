@@ -147,16 +147,14 @@ export default {
                 'irishmob'    : this.attackerId == 8,
                 'lcn'         : this.attackerId == 9,
                 'yakuza'      : this.attackerId == 10,
-                'uptowns'     : this.attackerId == 11,
+                'banditos'    : this.attackerId == 11,
                 'grove'       : this.attackerId == 12,
-                'triaden'     : this.attackerId == 17,
-                'vagos': this.attackerId == 18,
-                'marabunta'   : this.attackerId == 19,
-                'ica'         : this.attackerId == 27,
-                'madrazo'     : this.attackerId == 44,
-                'boso'        : this.attackerId == 45,
-                'bratwa'      : this.attackerId == 47,
-                'org'         : this.attackerId == 48,
+                'vagos'       : this.attackerId == 18,
+                'madrazo'     : this.attackerId == 27,
+                'triaden'     : this.attackerId == 44,
+                'org'         : this.attackerId == 47,
+                'marabunta'   : this.attackerId == 49,
+                'bratwa'      : this.attackerId == 50,
             }
         },
         defenderColor  : function () {
@@ -166,16 +164,14 @@ export default {
                 'irishmob'    : this.defenderId == 8,
                 'lcn'         : this.defenderId == 9,
                 'yakuza'      : this.defenderId == 10,
-                'uptowns'     : this.defenderId == 11,
+                'banditos'    : this.defenderId == 11,
                 'grove'       : this.defenderId == 12,
-                'triaden'     : this.defenderId == 17,
-                'vagos': this.defenderId == 18,
-                'marabunta'   : this.defenderId == 19,
-                'ica'         : this.defenderId == 27,
-                'madrazo'     : this.defenderId == 44,
-                'boso'        : this.defenderId == 45,
-                'bratwa'      : this.defenderId == 47,
-                'org'         : this.defenderId == 48,
+                'vagos'       : this.defenderId == 18,
+                'madrazo'     : this.defenderId == 27,
+                'triaden'     : this.defenderId == 44,
+                'org'         : this.defenderId == 47,
+                'marabunta'   : this.defenderId == 49,
+                'bratwa'      : this.defenderId == 50,
             }
         },
         betterTeamColor: function () {
@@ -186,16 +182,14 @@ export default {
                 'irishmobFill'    : this.winnerTeam == 8,
                 'lcnFill'         : this.winnerTeam == 9,
                 'yakuzaFill'      : this.winnerTeam == 10,
-                'uptownsFill'     : this.winnerTeam == 11,
+                'banditosFill'    : this.winnerTeam == 11,
                 'groveFill'       : this.winnerTeam == 12,
-                'triadenFill'     : this.winnerTeam == 17,
-                'vagosFill': this.winnerTeam == 18,
-                'marabuntaFill'   : this.winnerTeam == 19,
-                'ica'             : this.winnerTeam == 27,
-                'bratwaFill'      : this.winnerTeam == 47,
-                'orgFill': this.winnerTeam == 48,
-                'madrazoFill': this.winnerTeam == 44,
-                'bosoFill': this.winnerTeam == 45,
+                'vagosFill'       : this.winnerTeam == 18,
+                'madrazoFill'     : this.winnerTeam == 27,
+                'triadenFill'     : this.winnerTeam == 44,
+                'orgFill'         : this.winnerTeam == 47,
+                'marabuntaFill'   : this.winnerTeam == 49,
+                'bratwaFill'      : this.winnerTeam == 50,
             }
         },
     },
@@ -423,28 +417,20 @@ export default {
     clear: both;
 }
 
-    .boso {
-        background-color: #E13B3A;
-    }
+.madrazo {
+    background-color: rgb(253,240,170);
+}
 
-    .bosoFill {
-        fill: #E13B3A;
-    }
-
-    .madrazo {
-        background-color: #A0A0A0;
-    }
-
-    .madrazoFill {
-        fill: #A0A0A0;
-    }
+.madrazoFill {
+    fill: rgb(253,240,170);
+}
 
 .ballas {
-    background-color: #320642;
+    background-color: rgb(102,0,204);
 }
 
 .ballasFill {
-    fill: #320642;
+    fill: rgb(102,0,204);
 }
 
 .irishmob {
@@ -456,11 +442,11 @@ export default {
 }
 
 .grove {
-    background-color: #023613;
+    background-color: rgb(0,204,0);
 }
 
 .groveFill {
-    fill: #023613;
+    fill: rgb(0,204,0);
 }
 
 .yakuza {
@@ -472,19 +458,19 @@ export default {
 }
 
 .lost {
-    background-color: #706656;
+    background-color: rgb(102,51,0);
 }
 
 .lostFill {
-    fill: #706656;
+    fill: rgb(102,51,0);
 }
 
-.uptowns {
-    background-color: #fff;
+.banditos {
+    background-color: rgb(54, 4, 14);
 }
 
-.uptownsFill {
-    fill: #fff;
+.banditosFill {
+    fill: rgb(54, 4, 14);
 }
 
 .lcn {
@@ -503,13 +489,13 @@ export default {
     fill: #030e2e;
 }
 
-    .vagos {
-        background-color: #FFFF01;
-    }
+.vagos {
+    background-color: #FFFF01;
+}
 
-    .vagosFill {
-        fill: #FFFF01;
-    }
+.vagosFill {
+    fill: #FFFF01;
+}
 
 .marabunta {
     background-color: #0055c4;
@@ -517,14 +503,6 @@ export default {
 
 .marabuntaFill {
     fill: #0055c4;
-}
-
-.ica {
-    background-color: #555;
-}
-
-.icaFill {
-    fill: #555;
 }
 
 .bratwa {
@@ -536,11 +514,11 @@ export default {
 }
 
 .org {
-    background-color: #63625c;
+    background-color: #fff;
 }
 
 .orgFill {
-    fill: #63625c;
+    fill: #fff;
 }
 </style>
 
