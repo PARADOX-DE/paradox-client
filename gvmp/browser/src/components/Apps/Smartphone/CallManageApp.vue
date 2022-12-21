@@ -95,7 +95,7 @@
                 autoplay
                 controls
                 ref="media"
-                :volume="0.6"
+                :volume="0.2"
                 currentTime="0"
                 type="audio/ogg"
                 preload="auto"
@@ -156,8 +156,9 @@ export default {
             if (data === 'outcomming') {
                 return Sounds.ringtoneOutcomming()
             } else if (data === 'incomming') {
-              if(this.ringtone == 0) return Sounds.ringtoneIncomming()
-              else return require('@/assets/smartphone/ringtones/' + this.ringtone === undefined ? parseInt(1) : parseInt(this.ringtone)  + '.mp3')
+              if(this.ringtone == undefined) return Sounds.ringtoneIncomming() 
+              else if(this.ringtone == 0) return Sounds.ringtoneIncomming()
+              else return "https://prdx.to/upload/ringtones/" + parseInt(this.ringtone) + ".ogg";  
             }
         },
 

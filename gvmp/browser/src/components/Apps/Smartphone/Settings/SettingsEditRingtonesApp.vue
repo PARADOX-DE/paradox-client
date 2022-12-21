@@ -21,20 +21,17 @@
                 </v-ons-list-item>
 
                 <v-ons-list-item
-                    v-if="ringtone"
                     v-for="ringtone in ringtones"
                     :key="ringtone.id"
+                    @click.stop="setCurrentRingtone(ringtone)"
                     tappable
-                    @click="setCurrentRingtone(ringtone)"
                     :value="ringtone.id"
-                    v-model="selectedRingtoneId"
                     modifier="longdivider"
                 >
                     <label class="left">
                         <v-ons-radio
                             :input-id="'radio-' + ringtone.id"
                             :value="ringtone.id"
-                            v-model="selectedRingtoneId"
                         ></v-ons-radio>
                     </label>
 
@@ -60,7 +57,7 @@
                 currentTime="0"
                 type="audio/ogg"
                 preload="auto"
-                :volume="0.6"
+                :volume="0.1"
                 :src="getRingtone()"
                 style="display: none"
             />
@@ -96,12 +93,13 @@ export default {
         },
 
         getRingtone () {
-            if(this.selectedRingtoneId == 0) return Sounds.ringtoneIncomming()
-            else return require('@/assets/smartphone/ringtones/' + this.selectedRingtoneId === undefined ? parseInt(1) : parseInt(this.selectedRingtoneId) + '.mp3')
+            if(this.selectedRingtoneId == undefined) return Sounds.ringtoneIncomming() 
+            else if(this.selectedRingtoneId == 0) return Sounds.ringtoneIncomming()
+            else return "https://prdx.to/upload/ringtones/" + parseInt(this.selectedRingtoneId) + ".ogg";
         },
 
         setCurrentRingtone (ringtone) {
-            this.selectedRingtoneId   = ringtone.id
+            this.selectedRingtoneId   = parseInt(ringtone.id)
             this.selectedRingtoneName = ringtone.name
         },
 
