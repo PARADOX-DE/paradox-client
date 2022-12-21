@@ -96,7 +96,7 @@ export default {
         },
 
         getRingtone () {
-            if(this.selectedRingtoneId == 0) Sounds.ringtoneIncomming()
+            if(this.selectedRingtoneId == 0) return Sounds.ringtoneIncomming()
             else return require(`@/assets/smartphone/ringtones/${this.selectedRingtoneId === undefined ? 1 : this.selectedRingtoneId}.mp3`)
         },
 
@@ -113,8 +113,7 @@ export default {
     },
 
     mounted () {
-        //this.triggerServer('requestRingtoneList')
-        this.responseRingtoneList(JSON.stringify({"ringtones":[]}));
+      this.triggerServer('requestRingtoneList')
     },
 }
 </script>

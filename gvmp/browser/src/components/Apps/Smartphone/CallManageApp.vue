@@ -156,7 +156,8 @@ export default {
             if (data === 'outcomming') {
                 return Sounds.ringtoneOutcomming()
             } else if (data === 'incomming') {
-                return require(`@/assets/smartphone/ringtones/${this.selectedRingtoneId}.mp3`)
+              if(this.selectedRingtoneId == 0) return Sounds.ringtoneIncomming()
+              else return require(`@/assets/smartphone/ringtones/${this.selectedRingtoneId}.mp3`)
             }
         },
 
