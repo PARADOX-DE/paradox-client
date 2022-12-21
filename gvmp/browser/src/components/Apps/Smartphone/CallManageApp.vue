@@ -95,7 +95,7 @@
                 autoplay
                 controls
                 ref="media"
-                :volume="1.0"
+                :volume="0.6"
                 currentTime="0"
                 type="audio/ogg"
                 preload="auto"

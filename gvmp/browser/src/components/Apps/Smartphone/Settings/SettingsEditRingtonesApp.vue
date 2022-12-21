@@ -60,6 +60,7 @@
                 currentTime="0"
                 type="audio/ogg"
                 preload="auto"
+                :volume="0.6"
                 :src="getRingtone()"
                 style="display: none"
             />
