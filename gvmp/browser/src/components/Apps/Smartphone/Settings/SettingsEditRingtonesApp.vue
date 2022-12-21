@@ -71,7 +71,6 @@
 <script>
 import BaseApp from '../../../BaseApp'
 import Sounds from '../../../sounds'
-import Ringtones from '../../../sounds/ringtones'
 
 export default {
     name: 'SettingsEditRingtonesApp',
