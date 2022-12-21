@@ -157,7 +157,7 @@ export default {
                 return Sounds.ringtoneOutcomming()
             } else if (data === 'incomming') {
               if(this.ringtone == 0) return Sounds.ringtoneIncomming()
-              else return require('@/assets/smartphone/ringtones/' + parseInt(this.ringtone === undefined ? 1 : this.ringtone) + '.mp3')
+              else return require('@/assets/smartphone/ringtones/' + this.ringtone === undefined ? parseInt(1) : parseInt(this.ringtone)  + '.mp3')
             }
         },
 

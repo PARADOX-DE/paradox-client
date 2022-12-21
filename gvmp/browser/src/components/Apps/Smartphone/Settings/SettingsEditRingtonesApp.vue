@@ -97,7 +97,7 @@ export default {
 
         getRingtone () {
             if(this.selectedRingtoneId == 0) return Sounds.ringtoneIncomming()
-            else return require('@/assets/smartphone/ringtones/' + parseInt(this.selectedRingtoneId === undefined ? 1 : this.selectedRingtoneId) + '.mp3')
+            else return require('@/assets/smartphone/ringtones/' + this.selectedRingtoneId === undefined ? parseInt(1) : parseInt(this.selectedRingtoneId) + '.mp3')
         },
 
         setCurrentRingtone (ringtone) {
