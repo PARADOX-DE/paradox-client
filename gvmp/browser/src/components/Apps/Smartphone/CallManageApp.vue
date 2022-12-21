@@ -123,8 +123,6 @@
 <script>
 import BaseApp from '../../BaseApp'
 import Sounds from '../../sounds'
-import Ringtones from '../../sounds/ringtones'
-import Ringtones2 from '../../sounds/ringtones2'
 
 // Global var for timer interval is required here!
 let timerInterval
@@ -158,11 +156,7 @@ export default {
             if (data === 'outcomming') {
                 return Sounds.ringtoneOutcomming()
             } else if (data === 'incomming') {
-                if (this.ringtone >= 9) {
-                    return Ringtones2.ringtone(this.ringtone)
-                } else {
-                    return Ringtones.ringtone(this.ringtone)
-                }
+                return require(`@/assets/smartphone/ringtones/${this.selectedRingtoneId}.mp3`)
             }
         },
 

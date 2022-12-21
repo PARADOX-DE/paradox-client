@@ -69,8 +69,8 @@
 
 <script>
 import BaseApp from '../../../BaseApp'
-import Ringtone from '../../../sounds/ringtones'
-import Ringtone2 from '../../../sounds/ringtones2'
+import Sounds from '../../../sounds'
+import Ringtones from '../../../sounds/ringtones'
 
 export default {
     name: 'SettingsEditRingtonesApp',
@@ -96,9 +96,8 @@ export default {
         },
 
         getRingtone () {
-            if (this.selectedRingtoneId >= 9) {
-                return Ringtone2.ringtone(this.selectedRingtoneId)
-            } else return Ringtone.ringtone(this.selectedRingtoneId)
+            if(this.selectedRingtoneId == 0) Sounds.ringtoneIncomming()
+            else return require(`@/assets/smartphone/ringtones/${this.selectedRingtoneId === undefined ? 1 : this.selectedRingtoneId}.mp3`)
         },
 
         setCurrentRingtone (ringtone) {
@@ -114,7 +113,8 @@ export default {
     },
 
     mounted () {
-        this.triggerServer('requestRingtoneList')
+        //this.triggerServer('requestRingtoneList')
+        this.responseRingtoneList(JSON.stringify({"ringtones":[]}));
     },
 }
 </script>
