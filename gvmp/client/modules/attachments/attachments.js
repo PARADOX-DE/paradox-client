@@ -224,41 +224,42 @@ class Attachments {
     }
 
     async addAttachment(entity, attachment) {
-
         if (!entity.__attachmentObjects.hasOwnProperty(attachment.id)) {
 
-            let object = mp.objects.new(attachment.model, entity.position, {
-                dimension: entity.dimension
-            });
+          let object = mp.objects.new(attachment.model, entity.position, {
+              dimension: entity.dimension
+          });
 
-            let count = 0;
+          let count = 0;
 
-            while((object == null || object.handle === 0) && count < 20) {
-                await mp.game.waitAsync(100);
-                count++;
-            }
+          while ((object == null || object.handle === 0) && count < 30) {
+              await mp.game.waitAsync(100);
+              count++;
+          }
 
-            object.attachTo(entity.handle, entity.getBoneIndex(attachment.bone), attachment.offset.x, attachment.offset.y, attachment.offset.z, attachment.rotation.x, attachment.rotation.y, attachment.rotation.z, false, false, false, false, 2, true);
+          if (object == null || object.handle === 0) return;
 
-            entity.__attachmentObjects[attachment.id] = object;
+          object.attachTo(entity.handle, entity.getBoneIndex(attachment.bone), attachment.offset.x, attachment.offset.y, attachment.offset.z, attachment.rotation.x, attachment.rotation.y, attachment.rotation.z, false, false, false, false, 2, true);
 
-            if(attachment.needsAnimation) {
-                mp.game.streaming.requestAnimDict(attachment.animationDict);
+          entity.__attachmentObjects[attachment.id] = object;
 
-                while (!mp.game.streaming.hasAnimDictLoaded(attachment.animationDict)) {
-                    await mp.game.waitAsync(5);
-                }
+          if (attachment.needsAnimation) {
+              mp.game.streaming.requestAnimDict(attachment.animationDict);
 
-                entity.taskPlayAnim(attachment.animationDict, attachment.animationName, 8, -4, -1, attachment.animationFlag, 0, false, false, false);
-            }
+              while (!mp.game.streaming.hasAnimDictLoaded(attachment.animationDict)) {
+                  await mp.game.waitAsync(5);
+              }
 
-            if(attachment.isCarrying){
-                if(mp.players.local.id === entity.id){
-                    _player.isCarrying = true;
-                    mp.players.local.weapon = mp.game.joaat('weapon_unarmed');
-                }
-            }
-        }
+              entity.taskPlayAnim(attachment.animationDict, attachment.animationName, 8, -4, -1, attachment.animationFlag, 0, false, false, false);
+          }
+
+          if (attachment.isCarrying) {
+              if (mp.players.local.id === entity.id) {
+                  _player3.default.isCarrying = true;
+                  mp.players.local.weapon = mp.game.joaat('weapon_unarmed');
+              }
+          }
+      }
     }
 
     removeAttachment(entity, attachment) {
