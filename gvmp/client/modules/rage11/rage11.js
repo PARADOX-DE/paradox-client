@@ -97,6 +97,7 @@ mp.events.add('render', () => {
 })
 mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapon, boneIndex, damage) => {
 
+    mp.players.local.setSuffersCriticalHits(false);
     if (targetEntity.type === 'player' && boneIndex === 20 && !player.invincible) {
         if (damage <= 5) {
             damage = 306;
