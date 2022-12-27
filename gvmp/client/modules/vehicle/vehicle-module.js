@@ -198,6 +198,26 @@ class VehicleModule {
             vehicle.setSirenSound(sound);
         })
 
+        mp.events.add('syncVehLivery', async (vehicle, liveryindex = 0) => {
+            if (vehicle == null || !mp.vehicles.exists(vehicle) || liveryindex == null) return;
+            await mp.game.waitAsync(100);
+            if (vehicle == null || !mp.vehicles.exists(vehicle) || liveryindex == null) return;
+
+            if (liveryindex > 0 || liveryindex == null) {
+                mp.game.invoke("0x60BF608F1B8CD1B6", vehicle.handle, liveryindex);
+            }
+        });
+
+        mp.events.add('syncVehHeadlight', async (vehicle, headlightcolor = 0) => {
+            if (vehicle == null || !mp.vehicles.exists(vehicle) || headlightcolor == null) return;
+            await mp.game.waitAsync(100);
+            if (vehicle == null || !mp.vehicles.exists(vehicle) || headlightcolor == null) return;
+
+            if (headlightcolor != null) {
+                mp.game.invoke("0xE41033B25D003A07", vehicle.handle, headlightcolor);
+            }
+        });
+
         mp.events.add('entityStreamIn', async (entity) => {
             if(entity != null && entity.type == "vehicle") {
                 if (!mp.vehicles.exists(entity))
