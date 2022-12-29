@@ -255,7 +255,7 @@ class Attachments {
 
           if (attachment.isCarrying) {
               if (mp.players.local.id === entity.id) {
-                  _player3.default.isCarrying = true;
+                  _player.isCarrying = true;
                   mp.players.local.weapon = mp.game.joaat('weapon_unarmed');
               }
           }

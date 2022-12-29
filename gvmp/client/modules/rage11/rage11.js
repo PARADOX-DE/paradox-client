@@ -96,14 +96,19 @@ mp.events.add('render', () => {
     }
 })
 mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapon, boneIndex, damage) => {
+  mp.players.local.setSuffersCriticalHits(false);
 
-    if (targetEntity.type === 'player' && boneIndex === 20 && !player.invincible) {
-        if (damage <= 5) {
-            damage = 306;
-        }
-        mp.players.local.applyDamageTo(Math.floor(damage / 18), true);
-        return true;
+  if (targetEntity.type === 'player' && (boneIndex === 20 || boneIndex === 18 || boneIndex === 16) && !player.invincible) {
+    if (damage <= 5) {
+        damage = 306;
     }
+    if (mp.players.local.getHealth() <= damage / 18) {
+        return false;
+    }
+
+    mp.players.local.applyDamageTo(Math.floor(damage / 18), true);
+    return true;
+  }
 });
 
 
@@ -116,14 +121,8 @@ mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapo
     }
 
     if (targetEntity.type === 'player' && sourceEntity.type === 'player' && player.dmglg) {
-        mp.events.callRemoteUnreliable("aads",
-            targetEntity,
-            Math.floor(sourceEntity.position.subtract(targetEntity.position).length()),
-            (boneIndex === 20) ? Math.floor(damage / 18) : damage,
-            boneIndex,
-            weapon.toString())
+      mp.events.callRemoteUnreliable("aads", targetEntity.remoteId, Math.floor(sourceEntity.position.subtract(targetEntity.position).length()), boneIndex === 20 ? Math.floor(damage / 18) : damage, boneIndex, weapon.toString());
     }
-
 });
 
 
