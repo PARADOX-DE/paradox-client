@@ -154,17 +154,11 @@ export default {
     methods: {
         playSound (data) {
             if (data === 'outcomming') {
-                //return Sounds.ringtoneOutcomming()
-                let audio = Sounds.ringtoneOutcomming()
-                audio.volume = 0.2
-                return audio
+                return Sounds.ringtoneOutcomming()
             } else if (data === 'incomming') {
-              let audio
-              if(this.ringtone == undefined) audio = Sounds.ringtoneIncomming()
-                else if(this.ringtone == 0) audio = Sounds.ringtoneIncomming()
-                else audio = "https://prdx.to/upload/ringtones/" + parseInt(this.ringtone) + ".ogg"
-                audio.volume = 0.2
-                return audio
+              if(this.ringtone == undefined) return Sounds.ringtoneIncomming() 
+              else if(this.ringtone == 0) return Sounds.ringtoneIncomming()
+              else return "https://prdx.to/upload/ringtones/" + parseInt(this.ringtone) + ".ogg";  
             }
         },
 
