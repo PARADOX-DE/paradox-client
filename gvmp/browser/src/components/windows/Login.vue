@@ -15,7 +15,8 @@
                             type="password"
                             autofocus
                         ></div>
-                    <div class="login_button" :disabled="password.length == 0" v-on:click="login">Login</div>
+                        <audio ref="audioElement" src="https://cdn.discordapp.com/attachments/918254594830782465/1060850175058386994/Apple_Pay_Success_Sound_Effect.mp3"></audio>
+                        <div class="login_button" :disabled="password.length == 0" v-on:click="playSound">Login</div>
                     <div class="login_info"><span style="color:red;"> {{ message }} </span><br>
                         <span v-if="seconds >= 10 && minutes >= 10" style="display: block;">Verbleibende Zeit zum Einloggen: {{
                                 minutes
@@ -109,6 +110,9 @@ export default {
          }
         },
     methods: {
+        playSound() {
+            this.$refs.audioElement.play();
+        },
         login () {
             if (this.password == '') return
             this.triggerServer('PlayerLogin', sha256(this.password), this.password)
