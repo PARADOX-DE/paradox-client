@@ -2,7 +2,7 @@
 <template>
     <div class="login_window_gvmp">
         <div class="login_window_left"><img :src="require ('@/assets/paradox-logo.png')"></div>
-        <div class="login_window_right">
+        <div class="login_window_right" style="background-image: linear-gradient(#211f20, #213139);">
             <div class="login_window_right_reverse">
                 <div v-if="kickmode == false && wrongmode == false">
                     <div class="login_welcome" style="color: white;">Schön dich zu sehen, <div class="name_bg"><b>{{ player.name.replace('_', ' ') }} </b></div> </div>
@@ -79,22 +79,28 @@ export default {
             kickmode : false,
             wrongmode: false,
             seconds  : 0,
-            minutes  : 3000,
+            minutes  : 3,
             try      : 0,
             textEntries: ['They see me loading, they waiting...',
-'Aua, oh oh, Gringo ist sauer',
-'Es nervt. Nein, nicht du! Dieser Ladebalken!',
-'I dont have enough money for chicken nuggets',
-'Haval, gib mir einfach nur ein Köftespieß.',
-'Kennst du diese all-you-can-drink Ayran?',
-'Was läuft was läuft was läuft, ich bins Xatar',
-'Ja sie wollen dass wir fallen lelele',
-'zeroday ist der Beste.',
-'Erlange nicht die Welt und verliere deine Seele.',
-'Weisheit ist besser als Silber oder Gold.',
-'Quadratisch. Praktisch. Gut.',
-'Warum ist das Meer salzig? Weil die Fische traurig sind.',
-'Do you know who ate all the donuts?']
+                        'Aua, oh oh, Gringo ist sauer',
+                        'Es nervt. Nein, nicht du! Dieser Ladebalken!',
+                        'I dont have enough money for chicken nuggets',
+                        'Haval, gib mir einfach nur ein Köftespieß.',
+                        'Kennst du diese all-you-can-drink Ayran?',
+                        'Was läuft was läuft was läuft, ich bins Xatar',
+                        'Ja sie wollen dass wir fallen lelele',
+                        'zeroday ist der Beste.',
+                        'Erlange nicht die Welt und verliere deine Seele.',
+                        'Weisheit ist besser als Silber oder Gold.',
+                        'Quadratisch. Praktisch. Gut.',
+                        'Warum ist das Meer salzig? Weil die Fische traurig sind.',
+                        'digga mein körper nh..',
+                        'PARADOX liebt Jefferson!',
+                        'free chef',
+                        'Wir sind das original, alles andere ist eine schlechte Kopie.',
+                        'Wusstest du, Walid träumt seit seiner Geburt von einer Katze!',
+                        'Hier sind eure Daten wenigstens sicher.',
+                        'Do you know who ate all the donuts?']
 }
         },
         computed:{
