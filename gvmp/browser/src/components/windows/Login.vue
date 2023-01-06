@@ -5,7 +5,8 @@
         <div class="login_window_right">
             <div class="login_window_right_reverse">
                 <div v-if="kickmode == false && wrongmode == false">
-                    <div class="login_welcome">Willkommen {{ player.name.replace('_', ' ') }}</div>
+                    <div class="login_welcome" style="color: white;">Schön dich zu sehen, <div class="name_bg"><b>{{ player.name.replace('_', ' ') }} </b></div> </div>
+                    <div class="login_smalltext">{{ text }}</div>
                     <div class="login_password">
                         <input
                             v-model="password"
@@ -78,10 +79,29 @@ export default {
             kickmode : false,
             wrongmode: false,
             seconds  : 0,
-            minutes  : 3,
+            minutes  : 3000,
             try      : 0,
-        }
-    },
+            textEntries: ['They see me loading, they waiting...',
+'Aua, oh oh, Gringo ist sauer',
+'Es nervt. Nein, nicht du! Dieser Ladebalken!',
+'I dont have enough money for chicken nuggets',
+'Haval, gib mir einfach nur ein Köftespieß.',
+'Kennst du diese all-you-can-drink Ayran?',
+'Was läuft was läuft was läuft, ich bins Xatar',
+'Ja sie wollen dass wir fallen lelele',
+'zeroday ist der Beste.',
+'Erlange nicht die Welt und verliere deine Seele.',
+'Weisheit ist besser als Silber oder Gold.',
+'Quadratisch. Praktisch. Gut.',
+'Warum ist das Meer salzig? Weil die Fische traurig sind.',
+'Do you know who ate all the donuts?']
+}
+        },
+        computed:{
+         text: function(){
+              return this.textEntries[Math.trunc(Math.random() * this.textEntries.length)]
+         }
+        },
     methods: {
         login () {
             if (this.password == '') return
@@ -130,7 +150,16 @@ export default {
 .clear {
     clear: both;
 }
-
+.name_bg {
+        background-image: url('https://cdn.discordapp.com/attachments/692473407715147889/798419629184778265/forumtitle.gif');
+        display: inline-block;
+    }
+    .login_smalltext {
+    margin-top: -3em;
+    font-size: 1.4vh;
+    margin-bottom: 2em;
+    color: hsla(0, 0%, 100%, .32)
+    }
 .login_window_gvmp {
     padding-top: 2vh;
     opacity: 0.99;
