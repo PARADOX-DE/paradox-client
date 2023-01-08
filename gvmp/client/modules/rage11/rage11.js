@@ -1,10 +1,10 @@
 import peds from "../peds/peds";
 import player from "../player/player"
 
+let shotPlayer = undefined;
+
 //FadeOutDeath cuz of new Handling
 mp.game.gameplay.setFadeOutAfterDeath(false);
-
-let shotPlayer = undefined;
 
 function makeid(length) {
     var result = '';
@@ -107,11 +107,13 @@ mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapo
     }
 });
 
-
 mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapon, boneIndex, damage) => {
     if (!targetEntity) return true;
     if (!sourcePlayer) return true;
-    if (sourcePlayer.isShooting()) {
+
+    mp.console.logInfo("t " + mp.game.weapon.getWeapontypeGroup(weapon));
+    let group = mp.game.weapon.getWeapontypeGroup(weapon).toString();
+    if (group != "2685387236" && group != "3566412244") {
         if (!shotPlayer || shotPlayer === undefined) return true;
         if (targetEntity.id != shotPlayer.id) return true;
     }
@@ -126,7 +128,6 @@ mp.events.add('outgoingDamage', (sourceEntity, targetEntity, sourcePlayer, weapo
     }
 
 });
-
 
 mp.events.add('playerWeaponShot', (targetPosition, targetEntity) => {
     shotPlayer = undefined;
