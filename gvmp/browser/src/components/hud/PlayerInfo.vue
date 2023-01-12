@@ -1,10 +1,25 @@
 <template>
     <div class="playerInfo" style="text-align: right;">
+        <div class="playerContainer">
+          <div class="playerInfoLogo">
+            <img class="logo-img" src="../../assets/logo.svg" />
 
-        <span style="margin-right: 10px;">{{ timestamp }}</span>
-        <span> {{ playerId }} | </span>
-        <span>TS-Nr: {{ voiceHash }}</span>
-        
+            <div class="playerInfoLogoText">
+              <div class="title">
+                <p class="logo-title">PARADOX</p>
+                <p class="logo-desc">ROLEPLAY</p>
+              </div>
+
+              <div class="online">
+                <p class="logo-desc">ONLINE <span class="white">0</span> &#183; <span class="white">1000</span></p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <span style="margin-right: 5px">{{ timestamp }} -  {{ playerId }}</span>
     </div>
 </template>
 
@@ -18,6 +33,7 @@
             return {
                 timestamp: '',
                 playerId: 0,
+                playerCount: 0,
                 voiceHash: ''
             }
         },
@@ -49,6 +65,9 @@
             setPlayerId(playerId){
                 this.playerId = playerId
             },
+            setPlayerCount(playerCount){
+                this.playerCount = playerCount
+            },
             setVoiceHash(voiceHash){
                 this.voiceHash = voiceHash
             }
@@ -61,5 +80,57 @@
     margin-right: 1vh;
     color: white;
     opacity: 0.8;
+
+    display: flex;
+    flex-direction: column;
+}
+.playerContainer {
+  display: inline-flex;
+  flex-direction: row;
+  font-size: 8px;
+  justify-content: end;
+}
+
+.px-1 {
+    color: #83e7cc;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.playerInfoLogo {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.playerInfoLogoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.online {
+  display: flex;
+  flex-direction: row;
+}
+
+.white {
+    color: #fff;
+}
+
+.logo-img {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    top: -0.25rem;
+}
+
+.logo-title {
+    font-size: 12px;
+}
+
+.logo-desc {
+    font-size: 8px;
+    color: #48bde8;
+    top: -0.3rem;
+    position: relative;
 }
 </style>

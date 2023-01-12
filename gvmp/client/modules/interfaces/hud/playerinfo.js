@@ -7,12 +7,17 @@ class PlayerInfo extends Component {
     }
 
     onReady () {
-        this.callOnBrowser(`setPlayerId(${player.playerId})`)
-        this.callOnBrowser(`setVoiceHash("${player.voiceHash}")`)
+      this.callOnBrowser(`setPlayerId(${player.playerId})`)
+      this.callOnBrowser(`setPlayerCount(${mp.players.length})`)
+      this.callOnBrowser(`setVoiceHash("${player.voiceHash}")`)
     }
 
     setPlayerId (playerId) {
-        this.callOnBrowser(`setPlayerId(${playerId})`)
+      this.callOnBrowser(`setPlayerId(${playerId})`)
+    }
+
+    setPlayerCount () {
+      this.callOnBrowser(`setPlayerCount(${mp.players.length})`)
     }
 
     setVoiceHash (voiceHash) {

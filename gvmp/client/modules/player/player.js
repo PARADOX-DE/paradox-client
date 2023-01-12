@@ -1132,6 +1132,7 @@ class Player {
             playerPanel.setBlackmoney(blackmoney);
             playerPanel.setWanteds(wanteds);
             playerInfo.setPlayerId(playerId);
+            playerInfo.setPlayerCount();
             playerInfo.setVoiceHash(voiceHash);
 
             mp.game.controls.useDefaultVehicleEntering = false
@@ -1146,6 +1147,8 @@ class Player {
 
             setInterval(() => {
                 const localPlayer = mp.players.local;
+                playerInfo.setPlayerCount();
+
                 if (localPlayer.getVariable("IN_ADUTY") === true) return;
                 mp.players.forEachInStreamRange((player) => {
                     if (!player || player === localPlayer) return;
@@ -1155,7 +1158,7 @@ class Player {
                     // const name = player.name == "Leon Rothe" ? "Jamie Jeremy Klipp" : "Leon Rothe";
                     // player.name = name;
                 })
-            }, 250);
+            }, 500);
         })
 
         mp.events.add('loadClientIpl', (ipl) => {
