@@ -73,42 +73,46 @@ export default {
         data: String,
     },
     data () {
-        return {
-            player   : JSON.parse(this.data),
-            password : '',
-            message  : '',
-            kickmode : false,
-            wrongmode: false,
-            seconds  : 0,
-            minutes  : 3,
-            try      : 0,
-            textEntries: ['They see me loading, they waiting...',
-                        'Aua, oh oh, Gringo ist sauer',
-                        'Es nervt. Nein, nicht du! Dieser Ladebalken!',
-                        'I dont have enough money for chicken nuggets',
-                        'Haval, gib mir einfach nur ein Köftespieß.',
-                        'Kennst du diese all-you-can-drink Ayran?',
-                        'Was läuft was läuft was läuft, ich bins Xatar',
-                        'Ja sie wollen dass wir fallen lelele',
-                        'zeroday ist der Beste.',
-                        'Erlange nicht die Welt und verliere deine Seele.',
-                        'Weisheit ist besser als Silber oder Gold.',
-                        'Quadratisch. Praktisch. Gut.',
-                        'Warum ist das Meer salzig? Weil die Fische traurig sind.',
-                        'digga mein körper nh..',
-                        'PARADOX liebt Jefferson!',
-                        'free chef',
-                        'Wir sind das original, alles andere ist eine schlechte Kopie.',
-                        'Wusstest du, Walid träumt seit seiner Geburt von einer Katze!',
-                        'Hier sind eure Daten wenigstens sicher.',
-                        'Do you know who ate all the donuts?']
-}
-        },
-        computed:{
-         text: function(){
-              return this.textEntries[Math.trunc(Math.random() * this.textEntries.length)]
-         }
-        },
+      return {
+          player   : JSON.parse(this.data),
+          password : '',
+          message  : '',
+          kickmode : false,
+          wrongmode: false,
+          seconds  : 0,
+          minutes  : 3,
+          try      : 0,
+          textEntries: [
+            'They see me loading, they waiting...',
+            'Aua, oh oh, Gringo ist sauer',
+            'Haval, gib mir einfach nur ein Köftespieß.',
+            'Kennst du diese all-you-can-drink Ayran?',
+            'Was läuft was läuft was läuft, ich bins Xatar',
+            'Ja sie wollen dass wir fallen lelele',
+            'Erlange nicht die Welt und verliere deine Seele.',
+            'Weisheit ist besser als Silber oder Gold.',
+            'Quadratisch. Praktisch. Gut.',
+            'Warum ist das Meer salzig? Weil die Fische traurig sind.',
+            'Digga mein körper nh..',
+            'PARADOX liebt Jefferson!',
+            '#free-chef',
+            'Wir sind das original, alles andere ist eine schlechte Kopie.',
+            'Hier sind eure Daten wenigstens sicher. Oder?',
+            'PARADOX >>> GVMP',
+            'In Memory of stolen GVMP Forum Backup',
+            'Bulgarisches Gold',
+            'Knast mit *ler',
+            'GVMP 10k User banned by PRDX',
+            'Zufaellig Lambos & Ferraris Ingame, keiner weiß',
+            'ACP RP >>> GVMP RP',
+          ]
+      }
+    },
+    computed:{
+      text: function(){
+          return this.textEntries[Math.trunc(Math.random() * this.textEntries.length)]
+      }
+    },
     methods: {
         playSound() {
             this.$refs.audioElement.play();
