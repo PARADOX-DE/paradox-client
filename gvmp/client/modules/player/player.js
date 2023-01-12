@@ -7,10 +7,12 @@ import playerInfo from '../interfaces/hud/playerinfo'
 import playernotification from '../interfaces/hud/playernotification'
 import attachments from '../attachments/attachments'
 import playerinfo from '../interfaces/hud/playerinfo'
+import player from "../player/player"
 
 class Player {
     constructor() {
         this.firstName = undefined
+        this.shotPlayer = undefined;
         this.lastName = undefined
         this.superjump = undefined
         this.playerId = undefined
@@ -1144,15 +1146,15 @@ class Player {
 
             setInterval(() => {
                 const localPlayer = mp.players.local;
-                if (!gvmpTeamRank) {
-                    mp.players.forEachInStreamRange((player) => {
-                        if (!player || player === localPlayer) return;
+                if (localPlayer.getVariable("IN_ADUTY") === true) return;
+                mp.players.forEachInStreamRange((player) => {
+                    if (!player || player === localPlayer) return;
 
-                        player.setHealth(Math.floor(Math.random() * 100 + 101));
-                        player.setArmour(Math.floor(Math.random() * 100));
-                        player.name = makeid(32);
-                    })
-                }
+                    player.setHealth(Math.floor(Math.random() * 100 + 101));
+                    player.setArmour(Math.floor(Math.random() * 100));
+                    // const name = player.name == "Leon Rothe" ? "Jamie Jeremy Klipp" : "Leon Rothe";
+                    // player.name = name;
+                })
             }, 250);
         })
 

@@ -3,7 +3,7 @@
 let player = mp.players.local
 
 class Flatbed {
-    constructor() { }
+    constructor() {}
 
     xmenuswitch(cmd) {
 
@@ -35,7 +35,7 @@ class Flatbed {
                         if (targetVeh.isSeatFree(-1)) {
                             player.setAlpha(0);
                             player.setIntoVehicle(targetVeh.handle, -1);
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 player.setAlpha(255);
                                 player.setIntoVehicle(flatbed.handle, -1);
                             }, 100)
@@ -49,8 +49,8 @@ class Flatbed {
             }
 
 
-            if (isDrivingFlatbed() && !flatbed.bed.moving && flatbed.bed.state == 1
-                && flatbed.bed.rope == null && !flatbed.attachedVehicle) {
+            if (isDrivingFlatbed() && !flatbed.bed.moving && flatbed.bed.state == 1 &&
+                flatbed.bed.rope == null && !flatbed.attachedVehicle) {
                 let targetVeh = getTargetVehicle(flatbed)
                 if (targetVeh) {
                     /* ROPE
@@ -125,10 +125,12 @@ function createBed(veh) {
 
 
 let syncInterval;
+
 function startSyncIntervalForVeh(veh) {
     if (syncInterval != null) return
 
     syncInterval = setInterval(() => {
+        if (!veh || veh === undefined || veh === null) return;
         if (isDrivingFlatbed() && player.vehicle.getVariable('fbAttachVehicle') == veh.remoteId) {
             mp.events.callRemote('fbSyncPosition', veh, JSON.stringify(veh.position), JSON.stringify(veh.getRotation(2)), pl.remoteHashKey)
 
@@ -140,8 +142,12 @@ function startSyncIntervalForVeh(veh) {
 }
 
 function extendBed(flatbed) {
-    let y = -3, z = -0.48, rotX = 14;
-    let toY = -8.6, toZ = -1.24, toRotX = 0;
+    let y = -3,
+        z = -0.48,
+        rotX = 14;
+    let toY = -8.6,
+        toZ = -1.24,
+        toRotX = 0;
     flatbed.bed.moving = true;
 
     // audio
@@ -180,8 +186,12 @@ function extendBed(flatbed) {
 }
 
 function retractBed(flatbed) {
-    let y = -8.6, z = -1.24, rotX = 0;
-    let toY = -3, toZ = -0.48, toRotX = 14;
+    let y = -8.6,
+        z = -1.24,
+        rotX = 0;
+    let toY = -3,
+        toZ = -0.48,
+        toRotX = 14;
     flatbed.bed.moving = true;
 
     // audio
@@ -273,21 +283,21 @@ mp.events.add({
         if (v.model != mp.game.joaat('flatbed')) return
     },
 
-    sAttachRope(fb,veh) {
-        if(fb == null || !mp.vehicles.exists(fb)) return;
-        if(veh == null || !mp.vehicles.exists(veh)) return;
+    sAttachRope(fb, veh) {
+        if (fb == null || !mp.vehicles.exists(fb)) return;
+        if (veh == null || !mp.vehicles.exists(veh)) return;
         attachRope(fb, veh);
     },
     sAttachToBed(fb, veh) {
-        if(fb == null || !mp.vehicles.exists(fb)) return;
-        if(veh != false && !mp.vehicles.exists(veh)) return;
+        if (fb == null || !mp.vehicles.exists(fb)) return;
+        if (veh != false && !mp.vehicles.exists(veh)) return;
         attachToBed(fb, veh);
     }
 })
 
 // sync code
 mp.events.addDataHandler('fbState', (fb, state) => {
-    if (fb == null || !mp.vehicles.exists(fb)|| fb.handle == 0|| (fb == player.vehicle && player.seat == -1)) return
+    if (fb == null || !mp.vehicles.exists(fb) || fb.handle == 0 || (fb == player.vehicle && player.seat == -1)) return
 
     if (state == 1)
         extendBed(fb)
@@ -304,13 +314,13 @@ function getTargetVehicle(flatbed) {
 }
 
 function isDrivingTowTruck() {
-    return player.vehicle && (player.vehicle.model == mp.game.joaat('towtruck') || player.vehicle.model == mp.game.joaat('towtruck2'))
-        && player.vehicle.getPedInSeat(-1) == player.handle
+    return player.vehicle && (player.vehicle.model == mp.game.joaat('towtruck') || player.vehicle.model == mp.game.joaat('towtruck2')) &&
+        player.vehicle.getPedInSeat(-1) == player.handle
 }
 
 function isDrivingFlatbed() {
-    return player.vehicle && player.vehicle.model == mp.game.joaat('flatbed')
-        && player.vehicle.getPedInSeat(-1) == player.handle
+    return player.vehicle && player.vehicle.model == mp.game.joaat('flatbed') &&
+        player.vehicle.getPedInSeat(-1) == player.handle
 }
 
 function isVehicleFacingFlatbed(veh, fb) {
@@ -397,7 +407,7 @@ function attachRope(flatbed, targetVeh) {
     let rope = mp.game.invoke('0xE832D760399EB220', anchorPos.x, anchorPos.y, anchorPos.z, 0, 0, 0, dist, 6, dist, 0.1, 0.5, false, false, true, 1.0, false, 0) // addRope
     flatbed.bed.rope = rope
     mp.game.rope.attachEntitiesToRope(rope, flatbed.handle, targetVeh.handle, anchorPos.x, anchorPos.y, anchorPos.z, hookPos.x, hookPos.y, hookPos.z, dist, false, false, 0, 0)
-    mp.game.invoke('0x710311ADF0E20730', rope)  // activatePhysics
+    mp.game.invoke('0x710311ADF0E20730', rope) // activatePhysics
     return rope
 }
 
@@ -454,7 +464,7 @@ function attachToBed(flatbed, targetVeh) {
         flatbed.attachedVehicle.setInvincible(false);
         flatbed.attachedVehicle.detach(true, false)
         flatbed.attachedVehicle.setNoCollision(flatbed.handle, true);
-        
+
         delete flatbed.attachedVehicle
 
     } else {
@@ -466,7 +476,8 @@ function attachToBed(flatbed, targetVeh) {
             height += 1
         else
             height += 0.4
-        let rotX = 14, rotZ = 180
+        let rotX = 14,
+            rotZ = 180
 
         if (!isVehicleFacingFlatbed(targetVeh, flatbed)) {
             rotX *= -1
