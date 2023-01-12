@@ -57,7 +57,7 @@ class Contacts {
 
     addContact (number, name) {
         if (number == null) return
-        // if (this.contacts == null) this.contacts = new Map()
+        if (this.contacts == null) this.contacts = new Map()
 
         if (this.contacts.has(number)) return
         this.contacts.set(number, new Contact(name, number))
@@ -74,6 +74,7 @@ class Contacts {
     }
 
     getContact (number) {
+      if (this.contacts == null) this.contacts = new Map()
         if (!this.contacts.has(number)) return null
 
         return this.contacts.get(number)

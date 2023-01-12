@@ -155,6 +155,7 @@ export default {
                 'org'         : this.attackerId == 47,
                 'marabunta'   : this.attackerId == 49,
                 'bratwa'      : this.attackerId == 50,
+                'balkaneros'  : this.attackerId == 52,
             }
         },
         defenderColor  : function () {
@@ -172,6 +173,7 @@ export default {
                 'org'         : this.defenderId == 47,
                 'marabunta'   : this.defenderId == 49,
                 'bratwa'      : this.defenderId == 50,
+                'balkaneros'  : this.defenderId == 52,
             }
         },
         betterTeamColor: function () {
@@ -190,6 +192,7 @@ export default {
                 'orgFill'         : this.winnerTeam == 47,
                 'marabuntaFill'   : this.winnerTeam == 49,
                 'bratwaFill'      : this.winnerTeam == 50,
+                'balkanerosFill'  : this.winnerTeam == 52,
             }
         },
     },
@@ -431,6 +434,15 @@ export default {
 
 .ballasFill {
     fill: rgb(102,0,204);
+}
+
+
+.balkaneros {
+    background-color: rgb(73,17,29);
+}
+
+.balkanerosFill {
+    fill: rgb(73,17,29);
 }
 
 .irishmob {

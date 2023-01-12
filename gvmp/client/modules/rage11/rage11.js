@@ -95,6 +95,7 @@ mp.events.add('render', () => {
         mp.game.controls.disableControlAction(0, 91, true); //
     }
 })
+
 mp.events.add('incomingDamage', (sourceEntity, sourcePlayer, targetEntity, weapon, boneIndex, damage) => {
   mp.players.local.setSuffersCriticalHits(false);
 

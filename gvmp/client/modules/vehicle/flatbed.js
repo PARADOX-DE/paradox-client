@@ -115,6 +115,8 @@ function createBed(veh) {
         veh.bed.streamingRange = 500
         veh.bed.state = 0
         setTimeout(() => {
+            if (veh.bed == null || veh.bed === 0) return;
+
             veh.bed.attachTo(veh.handle, veh.getBoneIndexByName('chassis_dummy'), 0, -3, -0.48, 14, 0, 180, true, false, false, false, 0, true)
             resolve()
         }, 100)

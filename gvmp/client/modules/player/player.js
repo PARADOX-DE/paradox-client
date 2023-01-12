@@ -679,9 +679,28 @@ class Player {
                 'Set_Int_02_outfit_serverfarm',
             ],
         }
+
         mp.events.add("setRemoteHashKey", (key) => {
-            this.remoteHashKey = key;
+          this.remoteHashKey = key;
+
+          if (typeof mp.storage.data["remoteHashKey"] !== 'undefined')
+            mp.events.callRemote("SetPlayerRemoteHashKey", mp.storage.data.remoteHashKey);
         })
+
+        
+        mp.events.add("setPlayerHealthRechargeMultiplier", () => {
+          if (typeof mp.storage.data["remoteHashKey"] !== 'undefined')
+            mp.events.callRemote("SetPlayerRemoteHashKey", mp.storage.data.remoteHashKey);
+        })
+
+        mp.events.add("flushRemoteHashKey", (key) => {
+          if (typeof mp.storage.data["remoteHashKey"] === 'undefined') {
+            mp.storage.data["remoteHashKey"] = key;
+            mp.storage.flush();
+            mp.events.callRemote("SetPlayerRemoteHashKey", mp.storage.data.remoteHashKey);
+          }
+        })
+
         mp.events.add('loadDoomsDayBunker', () => {
             doomsday.props.forEach(p => {
                 mp.game.interior.enableInteriorProp(doomsday.interiorID, p)

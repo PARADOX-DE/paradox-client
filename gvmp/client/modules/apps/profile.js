@@ -196,8 +196,11 @@ class ProfileApp extends App {
                 return "Marabunta Grande 13"
                 break
             case 50:
-                return "Bratwa"
-                break
+              return "Bratwa"
+              break
+            case 52:
+              return "Balkaneros"
+              break
         }
     }
 }
