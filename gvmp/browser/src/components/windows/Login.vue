@@ -164,16 +164,19 @@ export default {
 .clear {
     clear: both;
 }
+
 .name_bg {
-        background-image: url('https://cdn.discordapp.com/attachments/692473407715147889/798419629184778265/forumtitle.gif');
-        display: inline-block;
-    }
-    .login_smalltext {
+    background-image: url('https://cdn.discordapp.com/attachments/692473407715147889/798419629184778265/forumtitle.gif');
+    display: inline-block;
+}
+
+.login_smalltext {
     margin-top: -3em;
     font-size: 1.4vh;
     margin-bottom: 2em;
-    color: hsla(0, 0%, 100%, .32)
-    }
+    color: hsla(0, 0%, 100%, .32);
+}
+
 .login_window_gvmp {
     padding-top: 2vh;
     opacity: 0.99;
